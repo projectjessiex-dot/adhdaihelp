@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Free Child ADHD Screener for Parents — Based on SNAP-IV",
+  title: "Child ADHD Test for Parents – Free SNAP-IV Screener",
   description:
-    "Is your child showing signs of ADHD? Take this free 18-question screener based on the SNAP-IV scale (DSM-5 criteria). For parents of children aged 5–17. Instant results, no sign-up.",
+    "Free child ADHD screener based on the SNAP-IV Rating Scale and DSM-5 criteria. For parents of children aged 5–17. 18 questions, instant results, no sign-up needed.",
   openGraph: {
-    title: "Free Child ADHD Screener for Parents (SNAP-IV)",
-    description: "18 questions · Instant results · Based on DSM-5 criteria for childhood ADHD.",
+    title: "Child ADHD Test for Parents – Free SNAP-IV Screener",
+    description: "18 questions · Instant results · DSM-5 criteria · For parents of children aged 5–17.",
   },
 };
 

@@ -215,6 +215,25 @@ export default function AdhdTypeQuiz() {
             <strong>Disclaimer:</strong> This quiz is a self-reflection tool, not a clinical diagnostic instrument. ADHD type can only be formally determined by a qualified clinician. Results are for educational purposes only.
           </div>
 
+          {/* Internal links */}
+          <div className="rounded-2xl p-5 mb-6 border" style={{ background: "var(--warm-card)", borderColor: "var(--warm-border)" }}>
+            <p className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: "var(--text-muted)" }}>Explore Next</p>
+            <div className="grid sm:grid-cols-2 gap-2">
+              {[
+                { href: "/tests/adult-adhd-test/", label: "Take the Full ASRS Test →" },
+                { href: "/tests/adhd-in-women-quiz/", label: "ADHD in Women Quiz →" },
+                { href: "/learn/executive-dysfunction/", label: "Executive Dysfunction Guide →" },
+                { href: "/tools/brain-dump/", label: "Try the Brain Dump Tool →" },
+              ].map(l => (
+                <Link key={l.href} href={l.href}
+                  className="block p-3 rounded-xl border text-xs font-semibold hover:opacity-80"
+                  style={{ background: "var(--sage-50)", borderColor: "var(--sage-100)", color: "var(--sage-dark)" }}>
+                  {l.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
           <div className="flex flex-col sm:flex-row gap-3">
             <button onClick={reset}
               className="flex-1 py-3.5 rounded-full font-bold text-sm border-2"
@@ -261,6 +280,12 @@ export default function AdhdTypeQuiz() {
               Rate how often each scenario describes your experience. Think about the <strong>past 6 months</strong> across work, home, and social situations.
             </p>
           </div>
+          <div className="rounded-xl p-5 mb-6 text-sm text-left border-2"
+            style={{ background: "var(--sage-50)", borderColor: "var(--sage)", color: "var(--text-secondary)" }}>
+            <p className="font-bold mb-1" style={{ color: "var(--sage-dark)" }}>Important — please read before starting:</p>
+            <p>This is <strong>not a diagnostic tool</strong>. Results are for educational purposes only. ADHD type can only be formally determined by a qualified clinician. Consult a healthcare professional for any diagnosis.</p>
+          </div>
+
           <button onClick={() => setStarted(true)}
             className="w-full py-4 rounded-full font-bold text-white text-lg hover:opacity-90"
             style={{ background: "var(--sage)" }}>

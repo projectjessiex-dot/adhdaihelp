@@ -293,6 +293,25 @@ export default function AdultAdhdTest() {
             <strong>Important:</strong> This screener is based on the WHO Adult ADHD Self-Report Scale (ASRS v1.1) and is for informational purposes only. It is <em>not</em> a medical diagnosis. Only a qualified healthcare professional — such as a psychiatrist, psychologist, or physician — can diagnose ADHD. If you have concerns about your mental health, please consult a professional.
           </div>
 
+          {/* Internal links */}
+          <div className="rounded-2xl p-5 mb-6 border" style={{ background: "var(--warm-card)", borderColor: "var(--warm-border)" }}>
+            <p className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: "var(--text-muted)" }}>Explore Next</p>
+            <div className="grid sm:grid-cols-2 gap-2">
+              {[
+                { href: "/learn/executive-dysfunction/", label: "What Is Executive Dysfunction? →" },
+                { href: "/learn/adhd-in-women/", label: "ADHD in Women: Why It's Missed →" },
+                { href: "/learn/adhd-vs-anxiety/", label: "ADHD vs Anxiety: The Difference →" },
+                { href: "/tools/brain-dump/", label: "Try the Brain Dump Tool →" },
+              ].map(l => (
+                <Link key={l.href} href={l.href}
+                  className="block p-3 rounded-xl border text-xs font-semibold hover:opacity-80"
+                  style={{ background: "var(--sage-50)", borderColor: "var(--sage-100)", color: "var(--sage-dark)" }}>
+                  {l.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
           {/* Actions */}
           <div className="flex flex-col sm:flex-row gap-3">
             <button
@@ -303,11 +322,11 @@ export default function AdultAdhdTest() {
               Retake Test
             </button>
             <Link
-              href="/learn/executive-dysfunction/"
+              href="/tests/adhd-type-quiz/"
               className="flex-1 py-3.5 rounded-full font-bold text-sm text-white text-center transition-opacity hover:opacity-90"
               style={{ background: "var(--sage)" }}
             >
-              Learn About Executive Dysfunction →
+              Find Your ADHD Type →
             </Link>
           </div>
         </div>
@@ -322,12 +341,15 @@ export default function AdultAdhdTest() {
         <div className="max-w-lg mx-auto text-center">
           <span className="text-5xl mb-6 block">🧠</span>
           <h1
-            className="text-3xl md:text-4xl font-extrabold mb-4"
+            className="text-3xl md:text-4xl font-extrabold mb-3"
             style={{ color: "var(--text-primary)" }}
           >
-            Adult ADHD Self-Test
+            ADHD Makes Simple Things Feel Impossible.
           </h1>
-          <p className="text-lg mb-8 leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+          <p className="text-lg mb-2 leading-relaxed font-semibold" style={{ color: "var(--sage-dark)" }}>
+            Take this free, science-backed test in 5 minutes.
+          </p>
+          <p className="text-sm mb-8 leading-relaxed" style={{ color: "var(--text-secondary)" }}>
             Based on the <strong>WHO Adult ADHD Self-Report Scale (ASRS v1.1)</strong> — one of the most widely used clinical screeners for adult ADHD.
           </p>
 
@@ -353,10 +375,11 @@ export default function AdultAdhdTest() {
           </div>
 
           <div
-            className="rounded-xl p-4 mb-8 text-sm text-left border"
-            style={{ background: "var(--sage-50)", borderColor: "var(--sage-100)", color: "var(--text-secondary)" }}
+            className="rounded-xl p-5 mb-8 text-sm text-left border-2"
+            style={{ background: "var(--sage-50)", borderColor: "var(--sage)", color: "var(--text-secondary)" }}
           >
-            ⚠️ <strong>Heads up:</strong> This is a screening tool, not a diagnostic test. Results are meant to help you understand your symptoms and decide whether to seek a professional evaluation.
+            <p className="font-bold mb-1" style={{ color: "var(--sage-dark)" }}>Important — please read before starting:</p>
+            <p>This is <strong>not a diagnostic tool</strong>. Results are for informational purposes only. Only a qualified healthcare professional (psychiatrist, psychologist, or physician) can diagnose ADHD. Consult a professional before making any health decisions.</p>
           </div>
 
           <button

@@ -259,6 +259,25 @@ export default function ChildAdhdTest() {
             <strong>Important:</strong> This screener is based on the SNAP-IV Rating Scale and DSM-5 criteria for childhood ADHD. It is completed by a parent or caregiver and is for informational purposes only — it is <em>not</em> a medical diagnosis. Only a qualified clinician (pediatrician, child psychiatrist, or psychologist) can diagnose ADHD in a child.
           </div>
 
+          {/* Internal links */}
+          <div className="rounded-2xl p-5 mb-6 border" style={{ background: "var(--warm-card)", borderColor: "var(--warm-border)" }}>
+            <p className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: "var(--text-muted)" }}>Explore Next</p>
+            <div className="grid sm:grid-cols-2 gap-2">
+              {[
+                { href: "/learn/executive-dysfunction/", label: "What Is Executive Dysfunction? →" },
+                { href: "/learn/adhd-vs-anxiety/", label: "ADHD vs Anxiety →" },
+                { href: "/tests/adult-adhd-test/", label: "Adult ADHD Test (for parents) →" },
+                { href: "/tools/brain-dump/", label: "Try the Brain Dump Tool →" },
+              ].map(l => (
+                <Link key={l.href} href={l.href}
+                  className="block p-3 rounded-xl border text-xs font-semibold hover:opacity-80"
+                  style={{ background: "var(--sage-50)", borderColor: "var(--sage-100)", color: "var(--sage-dark)" }}>
+                  {l.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
           {/* Actions */}
           <div className="flex flex-col sm:flex-row gap-3">
             <button onClick={reset}
@@ -266,10 +285,10 @@ export default function ChildAdhdTest() {
               style={{ borderColor: "var(--sage-light)", color: "var(--sage-dark)" }}>
               Retake Test
             </button>
-            <Link href="/learn/adhd-in-women/"
+            <Link href="/learn/executive-dysfunction/"
               className="flex-1 py-3.5 rounded-full font-bold text-sm text-white text-center transition-opacity hover:opacity-90"
               style={{ background: "var(--sage)" }}>
-              Read: ADHD in Women →
+              What Is Executive Dysfunction? →
             </Link>
           </div>
         </div>
@@ -308,9 +327,10 @@ export default function ChildAdhdTest() {
             </p>
           </div>
 
-          <div className="rounded-xl p-4 mb-8 text-sm text-left border"
-            style={{ background: "var(--sage-50)", borderColor: "var(--sage-100)", color: "var(--text-secondary)" }}>
-            ⚠️ <strong>Note:</strong> This screener is designed for children aged <strong>5–17</strong>. For younger children, behaviors like high activity and short attention span are developmentally normal.
+          <div className="rounded-xl p-5 mb-8 text-sm text-left border-2"
+            style={{ background: "var(--sage-50)", borderColor: "var(--sage)", color: "var(--text-secondary)" }}>
+            <p className="font-bold mb-1" style={{ color: "var(--sage-dark)" }}>Important — please read before starting:</p>
+            <p>This is <strong>not a diagnostic tool</strong>. Results are for informational purposes only and cannot replace a formal evaluation by a qualified clinician. Designed for children aged <strong>5–17</strong>; high activity in younger children may be developmentally normal.</p>
           </div>
 
           <button onClick={() => setStarted(true)}
