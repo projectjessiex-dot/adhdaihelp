@@ -263,40 +263,56 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Newsletter */}
+      {/* Newsletter + Lead Magnet */}
       <section className="max-w-xl mx-auto px-4 py-16 text-center">
+        <span className="inline-block text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5"
+          style={{ background: "var(--sage-100)", color: "var(--sage-dark)" }}>
+          Free Download
+        </span>
         <h2
           className="text-2xl md:text-3xl font-extrabold mb-3"
           style={{ color: "var(--text-primary)" }}
         >
-          Weekly ADHD Insights
+          Get the Free ADHD Daily Focus Checklist
         </h2>
-        <p className="mb-7 leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-          Practical tips, new tools, and gentle reminders — delivered every week.
-          For adults with ADHD and parents raising them.
+        <p className="mb-5 leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+          16 research-backed habits for morning, focus time, and evening — each one with the <em>why</em> behind it.
+          Built for how the ADHD brain actually works.
         </p>
-        <form className="flex flex-col sm:flex-row gap-3">
-          <input
-            type="email"
-            placeholder="you@email.com"
-            className="flex-1 rounded-full px-5 py-3.5 text-sm outline-none border"
-            style={{
-              background: "var(--warm-card)",
-              borderColor: "var(--warm-border)",
-              color: "var(--text-primary)",
-            }}
-          />
-          <button
-            type="submit"
-            className="font-bold px-6 py-3.5 rounded-full text-white whitespace-nowrap transition-opacity hover:opacity-90"
-            style={{ background: "var(--sage)" }}
-          >
-            Subscribe →
-          </button>
-        </form>
-        <p className="text-xs mt-3" style={{ color: "var(--text-muted)" }}>
-          No spam. Unsubscribe anytime.
-        </p>
+        <Link
+          href="/resources/adhd-focus-checklist/"
+          className="inline-block font-bold px-7 py-4 rounded-full text-white mb-6 transition-opacity hover:opacity-90"
+          style={{ background: "var(--sage)" }}
+        >
+          View the Free Checklist →
+        </Link>
+        <div className="border-t pt-6" style={{ borderColor: "var(--warm-border)" }}>
+          <p className="text-sm mb-4" style={{ color: "var(--text-secondary)" }}>
+            Plus: get weekly ADHD tips and new tools delivered to your inbox.
+          </p>
+          <form className="flex flex-col sm:flex-row gap-3">
+            <input
+              type="email"
+              placeholder="you@email.com"
+              className="flex-1 rounded-full px-5 py-3.5 text-sm outline-none border"
+              style={{
+                background: "var(--warm-card)",
+                borderColor: "var(--warm-border)",
+                color: "var(--text-primary)",
+              }}
+            />
+            <button
+              type="submit"
+              className="font-bold px-6 py-3.5 rounded-full text-white whitespace-nowrap transition-opacity hover:opacity-90"
+              style={{ background: "var(--sage-dark)" }}
+            >
+              Subscribe →
+            </button>
+          </form>
+          <p className="text-xs mt-3" style={{ color: "var(--text-muted)" }}>
+            No spam. Unsubscribe anytime.
+          </p>
+        </div>
       </section>
     </>
   );

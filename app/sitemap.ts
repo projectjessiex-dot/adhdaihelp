@@ -14,5 +14,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/learn/adhd-vs-anxiety/`,            lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/learn/executive-dysfunction/`,      lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/tools/brain-dump/`,                 lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/resources/adhd-focus-checklist/`,   lastModified: now, changeFrequency: "monthly", priority: 0.7 },
   ];
 }

@@ -19,6 +19,7 @@ export default function Footer() {
             <ul className="space-y-2">
               {[
                 { label: "Adult ADHD Test", href: "/tests/adult-adhd-test/" },
+                { label: "ADHD in Women Quiz", href: "/tests/adhd-in-women-quiz/" },
                 { label: "Child ADHD Test", href: "/tests/child-adhd-test/" },
                 { label: "ADHD Type Quiz", href: "/tests/adhd-type-quiz/" },
               ].map((l) => (
@@ -47,13 +48,19 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: "var(--text-muted)" }}>Tools</h4>
+            <h4 className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: "var(--text-muted)" }}>Tools & Info</h4>
             <ul className="space-y-2">
-              <li>
-                <Link href="/tools/brain-dump/" className="text-sm transition-colors hover:underline" style={{ color: "var(--text-muted)" }}>
-                  Brain Dump
-                </Link>
-              </li>
+              {[
+                { label: "Brain Dump", href: "/tools/brain-dump/" },
+                { label: "ADHD Focus Checklist", href: "/resources/adhd-focus-checklist/" },
+                { label: "Privacy Policy", href: "/privacy-policy/" },
+              ].map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="text-sm transition-colors hover:underline" style={{ color: "var(--text-muted)" }}>
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
