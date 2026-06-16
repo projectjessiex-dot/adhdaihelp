@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Nunito } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const nunito = Nunito({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-nunito",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -26,8 +30,15 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="h-full scroll-smooth">
-      <body className={`${inter.className} min-h-full flex flex-col bg-white text-slate-800 antialiased`}>
+    <html lang="en" className={`${nunito.variable} h-full scroll-smooth`}>
+      <body
+        className="min-h-full flex flex-col antialiased"
+        style={{
+          fontFamily: "var(--font-nunito), system-ui, sans-serif",
+          background: "var(--warm-bg)",
+          color: "var(--text-primary)",
+        }}
+      >
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />
