@@ -79,7 +79,7 @@ export default function HomePage() {
             className="text-4xl md:text-5xl font-extrabold leading-tight mb-5"
             style={{ color: "var(--text-primary)", letterSpacing: "-0.02em" }}
           >
-            Do You Think You Might<br className="hidden md:block" /> Have ADHD?
+            You&apos;re Not Lazy.<br className="hidden md:block" /> You Might Have ADHD.
           </h1>
 
           <p
@@ -87,9 +87,9 @@ export default function HomePage() {
             style={{ color: "var(--text-secondary)" }}
           >
             Free ADHD screeners, symptom guides, and practical tools — for adults,
-            parents, and anyone who wants to{" "}
+            parents, and anyone ready to{" "}
             <strong style={{ color: "var(--text-primary)" }}>
-              understand ADHD and take the next step.
+              understand what&apos;s really going on.
             </strong>
           </p>
 
@@ -138,11 +138,14 @@ export default function HomePage() {
             <Link
               key={t.href}
               href={t.href}
-              className="group rounded-2xl border p-6 transition-all hover:shadow-md"
+              className="group rounded-2xl border p-6 transition-all"
               style={{
                 background: "var(--warm-card)",
                 borderColor: "var(--warm-border)",
+                boxShadow: "var(--card-shadow)",
               }}
+              onMouseEnter={e => (e.currentTarget.style.boxShadow = "var(--card-shadow-hover)")}
+              onMouseLeave={e => (e.currentTarget.style.boxShadow = "var(--card-shadow)")}
             >
               <div className="text-3xl mb-3">{t.icon}</div>
               <span
@@ -206,11 +209,14 @@ export default function HomePage() {
             <Link
               key={a.href}
               href={a.href}
-              className="group rounded-2xl border p-6 transition-all hover:shadow-md"
+              className="group rounded-2xl border p-6 transition-all"
               style={{
                 background: "var(--warm-card)",
                 borderColor: "var(--warm-border)",
+                boxShadow: "var(--card-shadow)",
               }}
+              onMouseEnter={e => (e.currentTarget.style.boxShadow = "var(--card-shadow-hover)")}
+              onMouseLeave={e => (e.currentTarget.style.boxShadow = "var(--card-shadow)")}
             >
               <span
                 className="inline-block text-xs font-bold px-3 py-1 rounded-full mb-3"
