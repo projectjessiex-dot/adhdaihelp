@@ -32,6 +32,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${nunito.variable} h-full scroll-smooth`}>
       <head>
+        {/* Google AdSense */}
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5751907687369207" crossOrigin="anonymous" />
         {/* Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-JND90CW4SC" />
         <script
