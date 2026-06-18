@@ -2,7 +2,11 @@
 import Link from "next/link";
 import { useState } from "react";
 
-const links = [
+type NavItem =
+  | { label: string; href: string; children?: never }
+  | { label: string; href?: never; children: { label: string; href: string }[] };
+
+const links: NavItem[] = [
   {
     label: "Tests",
     children: [
