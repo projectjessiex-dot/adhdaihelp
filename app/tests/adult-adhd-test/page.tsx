@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 
 // ── ASRS v1.1 (18 questions) ─────────────────────────────────────
@@ -339,7 +339,13 @@ export default function AdultAdhdTest() {
     return (
       <div className="min-h-screen px-4 py-16" style={{ background: "var(--warm-bg)" }}>
         <div className="max-w-lg mx-auto text-center">
-          <span className="text-5xl mb-6 block">🧠</span>
+          <div className="flex justify-center mb-6">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="var(--sage)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <line x1="28" y1="13" x2="28" y2="45" />
+              <path d="M28 13C27 10.5 24.5 8.5 21 8.5C17 8.5 13.5 11.5 13.5 16C13.5 18 14.5 19.5 15.5 20.5C13.5 21.5 12 23.5 12 26C12 28.8 13.7 31 16.5 32C16 33 15.8 34 15.8 35C15.8 38 17.8 40 20.5 39.5" />
+              <path d="M28 13C29 10.5 31.5 8.5 35 8.5C39 8.5 42.5 11.5 42.5 16C42.5 18 41.5 19.5 40.5 20.5C42.5 21.5 44 23.5 44 26C44 28.8 42.3 31 39.5 32C40 33 40.2 34 40.2 35C40.2 38 38.2 40 35.5 39.5" />
+            </svg>
+          </div>
           <h1
             className="text-3xl md:text-4xl font-extrabold mb-3"
             style={{ color: "var(--text-primary)" }}
@@ -358,13 +364,13 @@ export default function AdultAdhdTest() {
             style={{ background: "var(--warm-card)", borderColor: "var(--warm-border)" }}
           >
             <div className="grid grid-cols-3 gap-4 text-center mb-6">
-              {[
-                { icon: "📋", label: "18 questions" },
-                { icon: "⏱", label: "3–5 minutes" },
-                { icon: "🔒", label: "Private & free" },
-              ].map((item) => (
+              {([
+                { icon: <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="var(--sage-dark)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="4" y="4" width="14" height="15" rx="2"/><path d="M8.5 4V3C8.5 2.4 9 2 9.5 2H12.5C13 2 13.5 2.4 13.5 3V4"/><line x1="7.5" y1="9" x2="14.5" y2="9"/><line x1="7.5" y1="12" x2="14.5" y2="12"/><line x1="7.5" y1="15" x2="12" y2="15"/></svg>, label: "18 questions" },
+                { icon: <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="var(--sage-dark)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="11" y1="7" x2="11" y2="11"/><line x1="11" y1="11" x2="14.5" y2="13"/></svg>, label: "3–5 minutes" },
+                { icon: <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="var(--sage-dark)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="4" y="10" width="14" height="10" rx="2"/><path d="M7.5 10V7.5C7.5 5.3 9 4 11 4C13 4 14.5 5.3 14.5 7.5V10"/><circle cx="11" cy="15" r="1.5" fill="var(--sage-dark)" stroke="none"/></svg>, label: "Private & free" },
+              ] as { icon: React.ReactNode; label: string }[]).map((item) => (
                 <div key={item.label}>
-                  <div className="text-2xl mb-1">{item.icon}</div>
+                  <div className="flex justify-center mb-2">{item.icon}</div>
                   <div className="text-sm font-semibold" style={{ color: "var(--text-secondary)" }}>{item.label}</div>
                 </div>
               ))}

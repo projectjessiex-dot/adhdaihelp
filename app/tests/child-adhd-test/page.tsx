@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 
 // ── SNAP-IV-26 (18 ADHD items) — English, DSM-5 criteria ─────────
@@ -301,7 +301,16 @@ export default function ChildAdhdTest() {
     return (
       <div className="min-h-screen px-4 py-16" style={{ background: "var(--warm-bg)" }}>
         <div className="max-w-lg mx-auto text-center">
-          <span className="text-5xl mb-6 block">👨‍👩‍👧</span>
+          <div className="flex justify-center mb-6">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="var(--sage)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <circle cx="13" cy="14" r="6"/>
+              <path d="M4 46V35C4 31 8 29 13 29C18 29 22 31 22 35V46"/>
+              <circle cx="28" cy="18" r="5"/>
+              <path d="M20 46V37C20 34 23 32 28 32C33 32 36 34 36 37V46"/>
+              <circle cx="43" cy="14" r="6"/>
+              <path d="M34 46V35C34 31 38 29 43 29C48 29 52 31 52 35V46"/>
+            </svg>
+          </div>
           <h1 className="text-3xl md:text-4xl font-extrabold mb-4" style={{ color: "var(--text-primary)" }}>
             Child ADHD Screener
           </h1>
@@ -311,13 +320,13 @@ export default function ChildAdhdTest() {
 
           <div className="rounded-2xl p-6 mb-6 text-left border" style={{ background: "var(--warm-card)", borderColor: "var(--warm-border)" }}>
             <div className="grid grid-cols-3 gap-4 text-center mb-6">
-              {[
-                { icon: "📋", label: "18 questions" },
-                { icon: "⏱", label: "4–5 minutes" },
-                { icon: "👤", label: "For parents" },
-              ].map((item) => (
+              {([
+                { icon: <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="var(--sage-dark)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="4" y="4" width="14" height="15" rx="2"/><path d="M8.5 4V3C8.5 2.4 9 2 9.5 2H12.5C13 2 13.5 2.4 13.5 3V4"/><line x1="7.5" y1="9" x2="14.5" y2="9"/><line x1="7.5" y1="12" x2="14.5" y2="12"/><line x1="7.5" y1="15" x2="12" y2="15"/></svg>, label: "18 questions" },
+                { icon: <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="var(--sage-dark)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="11" y1="7" x2="11" y2="11"/><line x1="11" y1="11" x2="14.5" y2="13"/></svg>, label: "4–5 minutes" },
+                { icon: <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="var(--sage-dark)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="11" cy="7" r="4"/><path d="M3.5 20C3.5 16 6.5 13.5 11 13.5C15.5 13.5 18.5 16 18.5 20"/></svg>, label: "For parents" },
+              ] as { icon: React.ReactNode; label: string }[]).map((item) => (
                 <div key={item.label}>
-                  <div className="text-2xl mb-1">{item.icon}</div>
+                  <div className="flex justify-center mb-2">{item.icon}</div>
                   <div className="text-sm font-semibold" style={{ color: "var(--text-secondary)" }}>{item.label}</div>
                 </div>
               ))}

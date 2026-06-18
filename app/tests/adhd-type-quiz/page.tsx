@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 
 // ── 18 scenario-based questions ───────────────────────────────────
@@ -256,7 +256,12 @@ export default function AdhdTypeQuiz() {
     return (
       <div className="min-h-screen px-4 py-16" style={{ background: "var(--warm-bg)" }}>
         <div className="max-w-lg mx-auto text-center">
-          <span className="text-5xl mb-6 block">🔍</span>
+          <div className="flex justify-center mb-6">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="var(--sage)" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
+              <circle cx="23" cy="23" r="15"/>
+              <line x1="34" y1="34" x2="49" y2="49"/>
+            </svg>
+          </div>
           <h1 className="text-3xl md:text-4xl font-extrabold mb-4" style={{ color: "var(--text-primary)" }}>
             ADHD Type Quiz
           </h1>
@@ -265,13 +270,13 @@ export default function AdhdTypeQuiz() {
           </p>
           <div className="rounded-2xl p-6 mb-6 text-left border" style={{ background: "var(--warm-card)", borderColor: "var(--warm-border)" }}>
             <div className="grid grid-cols-3 gap-4 text-center mb-6">
-              {[
-                { icon: "💬", label: "18 scenarios" },
-                { icon: "⏱", label: "4–5 minutes" },
-                { icon: "🔍", label: "3 possible types" },
-              ].map(item => (
+              {([
+                { icon: <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="var(--sage-dark)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3 3H19C20.1 3 21 3.9 21 5V14C21 15.1 20.1 16 19 16H11L7 20V16H3C1.9 16 1 15.1 1 14V5C1 3.9 1.9 3 3 3Z"/></svg>, label: "18 scenarios" },
+                { icon: <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="var(--sage-dark)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="11" y1="7" x2="11" y2="11"/><line x1="11" y1="11" x2="14.5" y2="13"/></svg>, label: "4–5 minutes" },
+                { icon: <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="var(--sage-dark)" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true"><circle cx="9" cy="9" r="7"/><line x1="14" y1="14" x2="20" y2="20"/></svg>, label: "3 possible types" },
+              ] as { icon: React.ReactNode; label: string }[]).map(item => (
                 <div key={item.label}>
-                  <div className="text-2xl mb-1">{item.icon}</div>
+                  <div className="flex justify-center mb-2">{item.icon}</div>
                   <div className="text-sm font-semibold" style={{ color: "var(--text-secondary)" }}>{item.label}</div>
                 </div>
               ))}
