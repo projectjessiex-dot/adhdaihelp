@@ -52,7 +52,11 @@ export default function Nav() {
           className="flex items-center gap-2 font-extrabold text-lg"
           style={{ color: "var(--sage-dark)" }}
         >
-          <span className="text-2xl">🌿</span>
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="var(--sage-dark)" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <line x1="11" y1="5" x2="11" y2="18.5" />
+            <path d="M11 5C10.5 3.6 9.2 2.8 7.5 2.8C5.4 2.8 4 4.4 4 6.5C4 7.5 4.5 8.3 5.1 8.9C4.2 9.4 3.5 10.5 3.5 11.8C3.5 13.4 4.6 14.6 6.1 15C5.9 15.4 5.8 15.9 5.8 16.5C5.8 18 6.8 19 8.2 18.8" />
+            <path d="M11 5C11.5 3.6 12.8 2.8 14.5 2.8C16.6 2.8 18 4.4 18 6.5C18 7.5 17.5 8.3 16.9 8.9C17.8 9.4 18.5 10.5 18.5 11.8C18.5 13.4 17.4 14.6 15.9 15C16.1 15.4 16.2 15.9 16.2 16.5C16.2 18 15.2 19 13.8 18.8" />
+          </svg>
           <span>ADHD<span style={{ color: "var(--text-secondary)" }}>Clarity</span></span>
         </Link>
 
