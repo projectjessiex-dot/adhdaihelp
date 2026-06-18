@@ -20,7 +20,13 @@ const links = [
       { label: "Executive Dysfunction", href: "/learn/executive-dysfunction/" },
     ],
   },
-  { label: "Tools", href: "/tools/brain-dump/" },
+  {
+    label: "Tools",
+    children: [
+      { label: "ADHD Coach", href: "/tools/adhd-coach/" },
+      { label: "Brain Dump", href: "/tools/brain-dump/" },
+    ],
+  },
 ];
 
 export default function Nav() {

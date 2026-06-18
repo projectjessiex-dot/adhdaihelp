@@ -10,26 +10,26 @@ export const metadata: Metadata = {
 const tests = [
   {
     href: "/tests/adult-adhd-test/",
-    icon: "👤",
     label: "For Adults",
     title: "Adult ADHD Self-Test",
-    desc: "Could I have ADHD? Based on the clinically validated ASRS screener.",
+    question: "Could I have ADHD?",
+    desc: "Based on the clinically validated ASRS screener.",
     time: "3 min",
   },
   {
     href: "/tests/child-adhd-test/",
-    icon: "👨‍👩‍👧",
     label: "For Parents",
     title: "Child ADHD Screener",
-    desc: "Is my child showing signs of ADHD? Based on DSM-5 criteria.",
+    question: "Is my child showing signs of ADHD?",
+    desc: "Based on DSM-5 criteria.",
     time: "4 min",
   },
   {
     href: "/tests/adhd-type-quiz/",
-    icon: "🔍",
     label: "For Everyone",
     title: "ADHD Type Quiz",
-    desc: "Inattentive, hyperactive, or combined? Find out which profile fits.",
+    question: "Inattentive, hyperactive, or combined?",
+    desc: "Find out which ADHD profile fits you.",
     time: "5 min",
   },
 ];
@@ -138,7 +138,7 @@ export default function HomePage() {
             <Link
               key={t.href}
               href={t.href}
-              className="group rounded-2xl border p-6 transition-all"
+              className="group rounded-2xl border transition-all overflow-hidden flex flex-col"
               style={{
                 background: "var(--warm-card)",
                 borderColor: "var(--warm-border)",
@@ -147,32 +147,40 @@ export default function HomePage() {
               onMouseEnter={e => (e.currentTarget.style.boxShadow = "var(--card-shadow-hover)")}
               onMouseLeave={e => (e.currentTarget.style.boxShadow = "var(--card-shadow)")}
             >
-              <div className="text-3xl mb-3">{t.icon}</div>
-              <span
-                className="text-xs font-bold uppercase tracking-wider"
-                style={{ color: "var(--sage)" }}
-              >
-                {t.label}
-              </span>
-              <h3
-                className="text-lg font-bold mt-1 mb-2"
-                style={{ color: "var(--text-primary)" }}
-              >
-                {t.title}
-              </h3>
-              <p className="text-sm leading-relaxed mb-4" style={{ color: "var(--text-muted)" }}>
-                {t.desc}
-              </p>
-              <div className="flex items-center justify-between">
-                <span className="text-xs" style={{ color: "var(--text-muted)" }}>
-                  ⏱ {t.time}
-                </span>
+              <div style={{ background: "var(--sage)", height: "3px" }} />
+              <div className="p-6 flex flex-col flex-1">
                 <span
-                  className="font-bold text-sm group-hover:translate-x-1 transition-transform inline-block"
-                  style={{ color: "var(--sage-dark)" }}
+                  className="text-xs font-bold uppercase tracking-wider"
+                  style={{ color: "var(--sage)" }}
                 >
-                  Start →
+                  {t.label}
                 </span>
+                <h3
+                  className="text-lg font-bold mt-1 mb-1"
+                  style={{ color: "var(--text-primary)" }}
+                >
+                  {t.title}
+                </h3>
+                <p
+                  className="text-base font-semibold mb-1"
+                  style={{ color: "var(--text-secondary)" }}
+                >
+                  {t.question}
+                </p>
+                <p className="text-sm leading-relaxed mb-4" style={{ color: "var(--text-muted)" }}>
+                  {t.desc}
+                </p>
+                <div className="flex items-center justify-between mt-auto">
+                  <span className="text-xs" style={{ color: "var(--text-muted)" }}>
+                    {t.time}
+                  </span>
+                  <span
+                    className="font-bold text-sm group-hover:translate-x-1 transition-transform inline-block"
+                    style={{ color: "var(--sage-dark)" }}
+                  >
+                    Start →
+                  </span>
+                </div>
               </div>
             </Link>
           ))}
