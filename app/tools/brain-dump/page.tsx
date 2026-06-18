@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useRef } from "react";
+import React, { useState, useRef } from "react";
+import { PenIcon, WindIcon, TrashIcon, SparkleIcon, LockIcon } from "@/components/Icons";
 
 export default function BrainDump() {
   const [text, setText]       = useState("");
@@ -36,14 +37,14 @@ export default function BrainDump() {
 
         {/* How it works */}
         <div className="grid grid-cols-3 gap-4 mb-8 text-center">
-          {[
-            { icon: "✍️", label: "Type everything", desc: "Tasks, worries, random thoughts — all of it" },
-            { icon: "😮‍💨", label: "Feel the relief", desc: "Your brain stops holding on once it's on screen" },
-            { icon: "🗑️", label: "Clear and go", desc: "Delete it all. Start fresh. Move forward." },
-          ].map((step) => (
+          {([
+            { icon: <PenIcon size={22} color="var(--sage-dark)" />, label: "Type everything", desc: "Tasks, worries, random thoughts — all of it" },
+            { icon: <WindIcon size={22} color="var(--sage-dark)" />, label: "Feel the relief", desc: "Your brain stops holding on once it's on screen" },
+            { icon: <TrashIcon size={22} color="var(--sage-dark)" />, label: "Clear and go", desc: "Delete it all. Start fresh. Move forward." },
+          ] as { icon: React.ReactNode; label: string; desc: string }[]).map((step) => (
             <div key={step.label} className="rounded-2xl p-4 border"
               style={{ background: "var(--warm-card)", borderColor: "var(--warm-border)" }}>
-              <div className="text-2xl mb-2">{step.icon}</div>
+              <div className="flex justify-center mb-2">{step.icon}</div>
               <div className="text-xs font-bold mb-1" style={{ color: "var(--text-primary)" }}>{step.label}</div>
               <div className="text-xs leading-relaxed" style={{ color: "var(--text-muted)" }}>{step.desc}</div>
             </div>
@@ -61,7 +62,7 @@ export default function BrainDump() {
             }}
           >
             <div className="text-center">
-              <span className="text-4xl block mb-3">✨</span>
+              <div className="flex justify-center mb-3"><SparkleIcon size={40} color="var(--sage)" /></div>
               <p className="font-semibold" style={{ color: "var(--sage-dark)" }}>
                 All cleared. Head feels lighter?
               </p>
@@ -99,7 +100,7 @@ export default function BrainDump() {
               className="text-sm font-bold px-5 py-2.5 rounded-full text-white transition-opacity hover:opacity-90"
               style={{ background: "var(--sage)" }}
             >
-              Clear & Reset 🗑️
+              <span className="flex items-center gap-1.5">Clear & Reset <TrashIcon size={14} color="white" /></span>
             </button>
           )}
         </div>
@@ -120,7 +121,7 @@ export default function BrainDump() {
 
         {/* Note about privacy */}
         <p className="text-center text-xs mt-8" style={{ color: "var(--text-muted)" }}>
-          🔒 Nothing you type here is saved, sent, or stored anywhere. This tool is 100% private.
+          <span className="inline-flex items-center gap-1.5"><LockIcon size={12} color="var(--text-muted)" /> Nothing you type here is saved, sent, or stored anywhere. This tool is 100% private.</span>
         </p>
       </div>
     </div>

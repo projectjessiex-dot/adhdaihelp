@@ -1,5 +1,7 @@
+import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BookOpenIcon, FlaskIcon, BarChartIcon, WaveIcon, ClockIcon, HeartIcon, LayersIcon, FlameIcon } from "@/components/Icons";
 
 export const metadata: Metadata = {
   title: "ADHD in Women: Why It Goes Undiagnosed for Decades",
@@ -77,8 +79,8 @@ export default function AdhdInWomen() {
               If you&apos;ve spent your life being told you&apos;re &quot;too sensitive,&quot; &quot;scatterbrained,&quot; or &quot;not living up to your potential&quot; — there may be a neurological reason nobody ever caught.
             </p>
             <div className="flex items-center justify-center gap-6 mt-6 text-xs" style={{ color: "var(--text-muted)" }}>
-              <span>📖 8 min read</span>
-              <span>🔬 Research-based</span>
+              <span className="inline-flex items-center gap-1"><BookOpenIcon size={13} /> 8 min read</span>
+              <span className="inline-flex items-center gap-1"><FlaskIcon size={13} /> Research-based</span>
               <span>Updated 2025</span>
             </div>
           </div>
@@ -107,8 +109,8 @@ export default function AdhdInWomen() {
 
           {/* Callout */}
           <div className="rounded-2xl p-6 mb-8" style={{ background: "var(--sage-50)", border: "1.5px solid var(--sage-100)" }}>
-            <p className="font-bold mb-2" style={{ color: "var(--sage-dark)" }}>
-              📊 By the numbers
+            <p className="font-bold mb-2 flex items-center gap-1.5" style={{ color: "var(--sage-dark)" }}>
+              <BarChartIcon size={15} /> By the numbers
             </p>
             <ul className="space-y-2 text-sm" style={{ color: "var(--text-secondary)" }}>
               <li>• Women are <strong>50–75% less likely</strong> to be diagnosed with ADHD than men with identical symptoms</li>
@@ -127,15 +129,15 @@ export default function AdhdInWomen() {
           </p>
           <div className="space-y-4 mb-8">
             {[
-              { icon: "🌊", title: "Chronic disorganization", desc: "Despite trying hard, you can't keep your space, schedule, or finances in order. You lose things constantly. You're often late. The chaos feels shameful because everyone else seems to manage fine." },
-              { icon: "⏰", title: "Time blindness", desc: "You genuinely can't feel time passing. An hour feels like 10 minutes. You're perpetually underestimating how long things take, which others experience as unreliability — but it's neurological, not intentional." },
-              { icon: "😥", title: "Emotional dysregulation", desc: "Rejection Sensitive Dysphoria (RSD) is common in ADHD. Criticism — even mild, even imagined — can feel devastating. Emotions arrive fast and intensely, then pass. This gets misread as 'being dramatic.'" },
-              { icon: "🎭", title: "Masking", desc: "Many women with ADHD become expert social performers, working overtime to appear 'normal' — remembering to make eye contact, suppress fidgeting, laugh at the right moments. Masking is exhausting and leads to burnout." },
-              { icon: "🔥", title: "Hyperfocus", desc: "ADHD isn't about not being able to focus — it's about not being able to regulate focus. When something is interesting, women with ADHD can focus intensely for hours. This confuses clinicians who expect 'always distracted.'" },
+              { icon: <WaveIcon size={22} color="var(--sage)" />, title: "Chronic disorganization", desc: "Despite trying hard, you can't keep your space, schedule, or finances in order. You lose things constantly. You're often late. The chaos feels shameful because everyone else seems to manage fine." },
+              { icon: <ClockIcon size={22} color="var(--sage)" />, title: "Time blindness", desc: "You genuinely can't feel time passing. An hour feels like 10 minutes. You're perpetually underestimating how long things take, which others experience as unreliability — but it's neurological, not intentional." },
+              { icon: <HeartIcon size={22} color="var(--sage)" />, title: "Emotional dysregulation", desc: "Rejection Sensitive Dysphoria (RSD) is common in ADHD. Criticism — even mild, even imagined — can feel devastating. Emotions arrive fast and intensely, then pass. This gets misread as 'being dramatic.'" },
+              { icon: <LayersIcon size={22} color="var(--sage)" />, title: "Masking", desc: "Many women with ADHD become expert social performers, working overtime to appear 'normal' — remembering to make eye contact, suppress fidgeting, laugh at the right moments. Masking is exhausting and leads to burnout." },
+              { icon: <FlameIcon size={22} color="var(--sage)" />, title: "Hyperfocus", desc: "ADHD isn't about not being able to focus — it's about not being able to regulate focus. When something is interesting, women with ADHD can focus intensely for hours. This confuses clinicians who expect 'always distracted.'" },
             ].map(item => (
               <div key={item.title} className="rounded-2xl p-5 border" style={{ background: "var(--warm-card)", borderColor: "var(--warm-border)" }}>
                 <div className="flex items-start gap-3">
-                  <span className="text-2xl flex-shrink-0">{item.icon}</span>
+                  <span className="flex-shrink-0">{item.icon}</span>
                   <div>
                     <h3 className="font-bold mb-1" style={{ color: "var(--text-primary)" }}>{item.title}</h3>
                     <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>{item.desc}</p>

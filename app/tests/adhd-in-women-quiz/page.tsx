@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import { FlowerIcon, MessageIcon, ClockIcon, LockIcon } from "@/components/Icons";
 
 // ── 12 questions focused on how ADHD presents in women ────────────
 const questions = [
@@ -128,7 +129,7 @@ export default function AdhdInWomenQuiz() {
         <div className="max-w-xl mx-auto">
 
           <div className="text-center mb-8">
-            <span className="text-4xl block mb-4">🌸</span>
+            <div className="flex justify-center mb-4"><FlowerIcon size={44} color="var(--sage)" /></div>
             <span className="inline-block text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full text-white mb-4"
               style={{ background: result.color }}>
               {result.level === "low" ? "Low Likelihood" : result.level === "moderate" ? "Some Patterns Present" : "Significant Patterns Present"}
@@ -245,13 +246,13 @@ export default function AdhdInWomenQuiz() {
 
           <div className="rounded-2xl p-6 mb-6 text-left border" style={{ background: "var(--warm-card)", borderColor: "var(--warm-border)" }}>
             <div className="grid grid-cols-3 gap-4 text-center mb-6">
-              {[
-                { icon: "💬", label: "12 questions" },
-                { icon: "⏱", label: "3–4 minutes" },
-                { icon: "🔒", label: "Private & free" },
-              ].map(item => (
+              {([
+                { icon: <MessageIcon size={22} color="var(--sage-dark)" />, label: "12 questions" },
+                { icon: <ClockIcon size={22} color="var(--sage-dark)" />, label: "3–4 minutes" },
+                { icon: <LockIcon size={22} color="var(--sage-dark)" />, label: "Private & free" },
+              ] as { icon: React.ReactNode; label: string }[]).map(item => (
                 <div key={item.label}>
-                  <div className="text-2xl mb-1">{item.icon}</div>
+                  <div className="flex justify-center mb-2">{item.icon}</div>
                   <div className="text-sm font-semibold" style={{ color: "var(--text-secondary)" }}>{item.label}</div>
                 </div>
               ))}

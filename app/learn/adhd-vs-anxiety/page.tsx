@@ -1,5 +1,7 @@
+import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BookOpenIcon, FlaskIcon, ShuffleIcon, RepeatIcon } from "@/components/Icons";
 
 export const metadata: Metadata = {
   title: "ADHD vs Anxiety: How to Tell the Difference",
@@ -83,7 +85,8 @@ export default function AdhdVsAnxiety() {
               The symptoms overlap almost completely — but the causes and treatments are different. Here&apos;s how to tell them apart, and why it matters.
             </p>
             <div className="flex items-center justify-center gap-6 mt-6 text-xs" style={{ color: "var(--text-muted)" }}>
-              <span>📖 7 min read</span><span>🔬 Research-based</span><span>Updated 2025</span>
+              <span className="inline-flex items-center gap-1"><BookOpenIcon size={13} /> 7 min read</span>
+              <span className="inline-flex items-center gap-1"><FlaskIcon size={13} /> Research-based</span><span>Updated 2025</span>
             </div>
           </div>
         </div>
@@ -105,12 +108,12 @@ export default function AdhdVsAnxiety() {
           </p>
           <div className="grid sm:grid-cols-2 gap-4 mb-8">
             {[
-              { label: "ADHD", color: "var(--sage)", icon: "🔀", text: "The mind wanders because it's seeking something more interesting. It drifts everywhere — it's not stuck on anything, it's just not staying put." },
-              { label: "Anxiety", color: "#C4923A", icon: "🔁", text: "The mind returns obsessively to a specific worry. It's not distracted by everything — it's captured by one thing it can't let go of." },
+              { label: "ADHD", color: "var(--sage)", icon: <ShuffleIcon size={20} color="var(--sage)" />, text: "The mind wanders because it's seeking something more interesting. It drifts everywhere — it's not stuck on anything, it's just not staying put." },
+              { label: "Anxiety", color: "#C4923A", icon: <RepeatIcon size={20} color="#C4923A" />, text: "The mind returns obsessively to a specific worry. It's not distracted by everything — it's captured by one thing it can't let go of." },
             ].map(item => (
               <div key={item.label} className="rounded-2xl p-5 border" style={{ background: "var(--warm-card)", borderColor: "var(--warm-border)" }}>
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="text-xl">{item.icon}</span>
+                  <span className="flex-shrink-0">{item.icon}</span>
                   <span className="font-extrabold text-white text-sm px-3 py-1 rounded-full" style={{ background: item.color }}>{item.label}</span>
                 </div>
                 <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>{item.text}</p>

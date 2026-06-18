@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { PrinterIcon, LockIcon, BrainIcon } from "@/components/Icons";
 
 export const metadata: Metadata = {
   title: "Free ADHD Daily Focus Checklist",
@@ -51,9 +52,9 @@ export default function AdhdFocusChecklist() {
             Each item includes the <em>why</em>, so you can adapt it to your life.
           </p>
           <div className="flex items-center justify-center gap-6 mt-6 text-xs" style={{ color: "var(--text-muted)" }}>
-            <span>🖨️ Print-friendly</span>
-            <span>🔒 No sign-up needed</span>
-            <span>🧠 ADHD-specific</span>
+            <span className="inline-flex items-center gap-1"><PrinterIcon size={13} /> Print-friendly</span>
+            <span className="inline-flex items-center gap-1"><LockIcon size={13} /> No sign-up needed</span>
+            <span className="inline-flex items-center gap-1"><BrainIcon size={13} /> ADHD-specific</span>
           </div>
         </div>
       </div>

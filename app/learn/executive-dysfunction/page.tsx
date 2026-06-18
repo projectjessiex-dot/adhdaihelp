@@ -1,3 +1,4 @@
+import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -54,45 +55,47 @@ const faqSchema = {
   ],
 };
 
+import { ArrowUpCircleIcon, GridIcon, ClipboardIcon, TargetIcon, ZapIcon, WaveIcon, LightbulbIcon, BrainIcon, BookOpenIcon, FlaskIcon } from "@/components/Icons";
+
 const functions = [
   {
     name: "Task Initiation",
-    icon: "🚀",
+    icon: <ArrowUpCircleIcon size={22} color="var(--sage-dark)" />,
     normal: "Starting a task when you decide to start it",
     adhd: "Knowing you need to start but being neurologically unable to begin — for hours",
     tip: "Use a 2-minute rule: commit to just 2 minutes. Starting is the hardest part.",
   },
   {
     name: "Working Memory",
-    icon: "🧮",
+    icon: <GridIcon size={22} color="var(--sage-dark)" />,
     normal: "Holding information in mind while using it",
     adhd: "Forgetting what you were doing mid-task, losing your train of thought mid-sentence",
     tip: "Externalize everything. If it matters, write it down immediately.",
   },
   {
     name: "Planning & Organization",
-    icon: "📋",
+    icon: <ClipboardIcon size={22} color="var(--sage-dark)" />,
     normal: "Sequencing steps toward a goal; organizing space and time",
     adhd: "Projects start in the middle, important steps get missed, spaces become chaotic",
     tip: "Break tasks into the smallest possible steps. 'Clean room' is not a step.",
   },
   {
     name: "Prioritization",
-    icon: "🎯",
+    icon: <TargetIcon size={22} color="var(--sage-dark)" />,
     normal: "Identifying what matters most and doing it first",
     adhd: "Everything feels equally urgent — or the wrong thing feels urgent (interesting ≠ important)",
     tip: "Choose one 'Top 1' task each morning. Everything else is secondary.",
   },
   {
     name: "Impulse Control",
-    icon: "⚡",
+    icon: <ZapIcon size={22} color="var(--sage-dark)" />,
     normal: "Pausing before acting; regulating urges",
     adhd: "Speaking before thinking, impulsive purchases, difficulty waiting, interrupting",
     tip: "Build in a 24-hour rule for decisions. The urge will pass; the wisdom won't.",
   },
   {
     name: "Emotional Regulation",
-    icon: "🌊",
+    icon: <WaveIcon size={22} color="var(--sage-dark)" />,
     normal: "Managing emotional intensity; recovering from frustration",
     adhd: "Emotions arrive at full intensity immediately; rejection feels catastrophic (RSD)",
     tip: "Name the emotion. 'I am frustrated' creates distance. 'This is catastrophic' does not.",
@@ -117,7 +120,8 @@ export default function ExecutiveDysfunction() {
               It&apos;s not laziness. It&apos;s not a lack of willpower. Executive dysfunction is why ADHD makes everyday tasks feel impossibly hard — even when you desperately want to do them.
             </p>
             <div className="flex items-center justify-center gap-6 mt-6 text-xs" style={{ color: "var(--text-muted)" }}>
-              <span>📖 9 min read</span><span>🔬 Research-based</span><span>Updated 2025</span>
+              <span className="inline-flex items-center gap-1"><BookOpenIcon size={13} /> 9 min read</span>
+              <span className="inline-flex items-center gap-1"><FlaskIcon size={13} /> Research-based</span><span>Updated 2025</span>
             </div>
           </div>
         </div>
@@ -148,7 +152,7 @@ export default function ExecutiveDysfunction() {
             {functions.map(fn => (
               <div key={fn.name} className="rounded-2xl border overflow-hidden" style={{ borderColor: "var(--warm-border)" }}>
                 <div className="p-4 flex items-center gap-3" style={{ background: "var(--sage-50)" }}>
-                  <span className="text-2xl">{fn.icon}</span>
+                  <span className="flex-shrink-0">{fn.icon}</span>
                   <h3 className="font-extrabold" style={{ color: "var(--text-primary)" }}>{fn.name}</h3>
                 </div>
                 <div className="p-5 grid sm:grid-cols-2 gap-4" style={{ background: "var(--warm-card)" }}>
@@ -161,7 +165,7 @@ export default function ExecutiveDysfunction() {
                     <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>{fn.adhd}</p>
                   </div>
                   <div className="sm:col-span-2 pt-3 border-t" style={{ borderColor: "var(--warm-border)" }}>
-                    <p className="text-xs font-bold uppercase tracking-wider mb-1" style={{ color: "var(--sage-dark)" }}>💡 What helps</p>
+                    <p className="text-xs font-bold uppercase tracking-wider mb-1 flex items-center gap-1" style={{ color: "var(--sage-dark)" }}><LightbulbIcon size={12} /> What helps</p>
                     <p className="text-sm" style={{ color: "var(--text-secondary)" }}>{fn.tip}</p>
                   </div>
                 </div>
@@ -180,7 +184,7 @@ export default function ExecutiveDysfunction() {
           </p>
 
           <div className="rounded-2xl p-6 mb-8" style={{ background: "var(--sage-50)", border: "1.5px solid var(--sage-100)" }}>
-            <p className="font-bold mb-3" style={{ color: "var(--sage-dark)" }}>🧠 The neuroscience in plain language</p>
+            <p className="font-bold mb-3 flex items-center gap-1.5" style={{ color: "var(--sage-dark)" }}><BrainIcon size={15} /> The neuroscience in plain language</p>
             <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
               Executive function depends heavily on dopamine signaling in the prefrontal cortex. In ADHD brains, dopamine is either produced in lower quantities or cleared too quickly from synapses. The result: the &quot;fire&quot; signal that makes you start tasks, sustain attention, and inhibit impulses is weaker and less reliable than in neurotypical brains. This is why stimulant medications — which increase dopamine availability — are often dramatically effective.
             </p>
