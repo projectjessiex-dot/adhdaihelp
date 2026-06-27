@@ -293,6 +293,39 @@ export default function AdultAdhdTest() {
             <strong>Important:</strong> This screener is based on the WHO Adult ADHD Self-Report Scale (ASRS v1.1) and is for informational purposes only. It is <em>not</em> a medical diagnosis. Only a qualified healthcare professional — such as a psychiatrist, psychologist, or physician — can diagnose ADHD. If you have concerns about your mental health, please consult a professional.
           </div>
 
+          {/* FAQ mini-section */}
+          <div className="rounded-2xl p-5 mb-6 border" style={{ background: "var(--sage-50)", borderColor: "var(--sage-100)" }}>
+            <h2 className="text-sm font-bold uppercase tracking-wider mb-4" style={{ color: "var(--sage-dark)" }}>
+              Frequently Asked Questions
+            </h2>
+            <div className="space-y-4">
+              {[
+                {
+                  q: "Can ADHD be diagnosed in adulthood?",
+                  a: "Yes. While ADHD is developmental, many adults are not diagnosed until later in life — especially people with the inattentive presentation. A thorough evaluation by a psychiatrist or psychologist can determine whether ADHD is present.",
+                },
+                {
+                  q: "What is the difference between ADHD and executive dysfunction?",
+                  a: "Executive dysfunction is the primary mechanism behind most ADHD symptoms — but it can also occur in autism, depression, anxiety, and after brain injury. ADHD is the most common cause of executive dysfunction. Our executive dysfunction guide explains this in depth.",
+                },
+                {
+                  q: "Can you have ADHD and anxiety at the same time?",
+                  a: "Yes — approximately 50% of adults with ADHD also meet criteria for an anxiety disorder. The two conditions frequently co-occur, and treating the underlying ADHD often reduces anxiety significantly.",
+                },
+              ].map((item, i) => (
+                <div key={i}>
+                  <h3 className="font-bold text-sm mb-1" style={{ color: "var(--text-primary)" }}>{item.q}</h3>
+                  <p className="text-xs leading-relaxed" style={{ color: "var(--text-secondary)" }}>{item.a}</p>
+                </div>
+              ))}
+            <Link href="/learn/adhd-faq/"
+              className="inline-block mt-3 text-xs font-bold hover:underline"
+              style={{ color: "var(--sage-dark)" }}>
+              See all ADHD FAQs →
+            </Link>
+            </div>
+          </div>
+
           {/* Internal links */}
           <div className="rounded-2xl p-5 mb-6 border" style={{ background: "var(--warm-card)", borderColor: "var(--warm-border)" }}>
             <p className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: "var(--text-muted)" }}>Explore Next</p>

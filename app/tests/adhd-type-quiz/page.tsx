@@ -215,6 +215,39 @@ export default function AdhdTypeQuiz() {
             <strong>Disclaimer:</strong> This quiz is a self-reflection tool, not a clinical diagnostic instrument. ADHD type can only be formally determined by a qualified clinician. Results are for educational purposes only.
           </div>
 
+          {/* FAQ mini-section */}
+          <div className="rounded-2xl p-5 mb-6 border" style={{ background: "var(--sage-50)", borderColor: "var(--sage-100)" }}>
+            <h2 className="text-sm font-bold uppercase tracking-wider mb-4" style={{ color: "var(--sage-dark)" }}>
+              Frequently Asked Questions
+            </h2>
+            <div className="space-y-4">
+              {[
+                {
+                  q: "What are the three ADHD types?",
+                  a: "The DSM-5 recognizes three ADHD presentations: Predominantly Inattentive (formerly called ADD), Predominantly Hyperactive-Impulsive, and Combined Type (symptoms in both categories). Most adults with ADHD have Combined or Inattentive.",
+                },
+                {
+                  q: "Can ADHD type change over time?",
+                  a: "Yes — especially with age. Hyperactivity often decreases in adulthood while inattentive symptoms tend to persist. Someone diagnosed as Hyperactive-Impulsive as a child may present more as Combined or Inattentive in adulthood.",
+                },
+                {
+                  q: "Is one ADHD type more severe than others?",
+                  a: "No — severity depends on how much symptoms interfere with daily life, not which type you have. Each type comes with real challenges. Inattentive Type is often underestimated because it doesn't match the stereotypical 'hyperactive' image.",
+                },
+              ].map((item, i) => (
+                <div key={i}>
+                  <h3 className="font-bold text-sm mb-1" style={{ color: "var(--text-primary)" }}>{item.q}</h3>
+                  <p className="text-xs leading-relaxed" style={{ color: "var(--text-secondary)" }}>{item.a}</p>
+                </div>
+              ))}
+              <Link href="/learn/adhd-faq/"
+                className="inline-block mt-3 text-xs font-bold hover:underline"
+                style={{ color: "var(--sage-dark)" }}>
+                See all ADHD FAQs →
+              </Link>
+            </div>
+          </div>
+
           {/* Internal links */}
           <div className="rounded-2xl p-5 mb-6 border" style={{ background: "var(--warm-card)", borderColor: "var(--warm-border)" }}>
             <p className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: "var(--text-muted)" }}>Explore Next</p>
