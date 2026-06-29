@@ -33,27 +33,44 @@ function Ring({
 }) {
   const progress = total > 0 ? timeLeft / total : 0;
   const offset = CIRC * (1 - progress);
-  const color = paused || isBreak ? "var(--sage-light)" : "var(--sage)";
+  const arcColor = paused || isBreak ? "var(--sage-light)" : "var(--sage)";
 
   return (
-    <div className="relative" style={{ width: 240, height: 240 }}>
-      <svg width="240" height="240" viewBox="0 0 240 240"
-        style={{ transform: "rotate(-90deg)", display: "block" }}>
-        <circle cx="120" cy="120" r={R} fill="none" stroke="var(--sage-100)" strokeWidth="10" />
-        <circle cx="120" cy="120" r={R} fill="none"
-          stroke={color} strokeWidth="10" strokeLinecap="round"
+    <div className="relative" style={{ width: 256, height: 256 }}>
+      {/* Clock face: white disc with shadow */}
+      <div className="absolute inset-0 rounded-full" style={{
+        background: "var(--warm-card)",
+        boxShadow: "0 2px 8px rgba(0,0,0,0.04), 0 8px 32px rgba(0,0,0,0.07)",
+      }} />
+
+      {/* Ring SVG */}
+      <svg width="256" height="256" viewBox="0 0 256 256"
+        className="absolute inset-0"
+        style={{ transform: "rotate(-90deg)" }}>
+        {/* Track */}
+        <circle cx="128" cy="128" r={R} fill="none"
+          stroke="var(--sage-100)" strokeWidth="9" />
+        {/* Progress arc */}
+        <circle cx="128" cy="128" r={R} fill="none"
+          stroke={arcColor} strokeWidth="9" strokeLinecap="round"
           strokeDasharray={CIRC} strokeDashoffset={offset}
           style={{ transition: "stroke-dashoffset 1s linear, stroke 0.4s ease" }}
         />
       </svg>
+
+      {/* Center text */}
       <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
         <span style={{
-          fontSize: "3rem", fontWeight: 800, color: "var(--text-primary)",
-          letterSpacing: "-0.03em", fontVariantNumeric: "tabular-nums", lineHeight: 1,
+          fontSize: "3.25rem", fontWeight: 800,
+          color: "var(--text-primary)",
+          letterSpacing: "-0.04em",
+          fontVariantNumeric: "tabular-nums",
+          lineHeight: 1,
         }}>
           {fmt(timeLeft)}
         </span>
-        <span className="text-xs font-medium mt-2" style={{ color: "var(--text-muted)" }}>
+        <span className="text-xs font-semibold tracking-wider uppercase mt-2"
+          style={{ color: "var(--text-muted)", letterSpacing: "0.08em" }}>
           {isBreak ? "break" : paused ? "paused" : "remaining"}
         </span>
       </div>
@@ -322,15 +339,14 @@ export default function FocusTimer() {
                     setTimeLeft(d.mins * 60);
                     setTotalSecs(d.mins * 60);
                   }}
-                  className="flex-1 py-3 rounded-full border transition-all flex flex-col items-center"
+                  className="flex-1 py-3 rounded-full text-xs font-bold border transition-all"
                   style={{
                     background: mins === d.mins ? "var(--sage)" : "var(--warm-card)",
                     borderColor: mins === d.mins ? "var(--sage)" : "var(--warm-border)",
                     color: mins === d.mins ? "white" : "var(--text-secondary)",
                   }}
                 >
-                  <span className="text-xs font-bold leading-tight">{d.label}</span>
-                  <span className="text-xs opacity-75">{d.sub}</span>
+                  {d.label} · {d.sub}
                 </button>
               ))}
             </div>
@@ -473,22 +489,24 @@ export default function FocusTimer() {
         {/* Primary: quick another 10 min */}
         <button
           onClick={quickStart10}
-          className="w-full py-4 rounded-2xl font-extrabold text-lg text-white mb-3"
+          className="px-10 py-4 rounded-2xl font-extrabold text-lg text-white mb-4"
           style={{ background: "var(--sage)", letterSpacing: "-0.01em" }}
         >
           Another 10 minutes →
         </button>
 
         {/* Secondary: pick new task */}
-        <button
-          onClick={reset}
-          className="text-sm font-medium transition-colors"
-          style={{ color: "var(--text-muted)" }}
-          onMouseEnter={(e) => (e.currentTarget.style.color = "var(--sage-dark)")}
-          onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}
-        >
-          Start a different task
-        </button>
+        <div>
+          <button
+            onClick={reset}
+            className="text-sm font-medium transition-colors"
+            style={{ color: "var(--text-muted)" }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--sage-dark)")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}
+          >
+            Start a different task
+          </button>
+        </div>
       </div>
     </div>
   );
