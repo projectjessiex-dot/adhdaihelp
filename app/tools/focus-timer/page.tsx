@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import FocusTimer from "./FocusTimer";
 
 export const metadata: Metadata = {
-  title: "ADHD Focus Timer – Start in 10 Minutes | ADHDClarity",
+  title: "ADHD Focus Timer | Free Pomodoro Timer for ADHD Brains",
   description:
-    "A distraction-free focus timer built for ADHD brains. Pick one tiny task, start for just 10 minutes. No sign-up required.",
+    "Can't start? This ADHD focus timer is built for task initiation, not just tracking time. Default 10 minutes, AI-powered first step, and gentle encouragement. Free, no sign-up.",
 };
 
 export default function Page() {
