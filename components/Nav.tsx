@@ -27,6 +27,7 @@ const links: NavItem[] = [
   {
     label: "Tools",
     children: [
+      { label: "Focus Timer", href: "/tools/focus-timer/" },
       { label: "ADHD Coach", href: "/tools/adhd-coach/" },
       { label: "Brain Dump", href: "/tools/brain-dump/" },
     ],

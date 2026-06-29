@@ -138,14 +138,11 @@ export default function HomePage() {
             <Link
               key={t.href}
               href={t.href}
-              className="group rounded-2xl border transition-all overflow-hidden flex flex-col"
+              className="group card-hover rounded-2xl border transition-all overflow-hidden flex flex-col"
               style={{
                 background: "var(--warm-card)",
                 borderColor: "var(--warm-border)",
-                boxShadow: "var(--card-shadow)",
               }}
-              onMouseEnter={e => (e.currentTarget.style.boxShadow = "var(--card-shadow-hover)")}
-              onMouseLeave={e => (e.currentTarget.style.boxShadow = "var(--card-shadow)")}
             >
               <div style={{ background: "var(--sage)", height: "3px" }} />
               <div className="p-6 flex flex-col flex-1">
@@ -217,14 +214,11 @@ export default function HomePage() {
             <Link
               key={a.href}
               href={a.href}
-              className="group rounded-2xl border p-6 transition-all"
+              className="group card-hover rounded-2xl border p-6 transition-all"
               style={{
                 background: "var(--warm-card)",
                 borderColor: "var(--warm-border)",
-                boxShadow: "var(--card-shadow)",
               }}
-              onMouseEnter={e => (e.currentTarget.style.boxShadow = "var(--card-shadow-hover)")}
-              onMouseLeave={e => (e.currentTarget.style.boxShadow = "var(--card-shadow)")}
             >
               <span
                 className="inline-block text-xs font-bold px-3 py-1 rounded-full mb-3"
