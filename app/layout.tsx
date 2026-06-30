@@ -1,13 +1,21 @@
 import type { Metadata } from "next";
-import { Nunito } from "next/font/google";
+import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
-const nunito = Nunito({
+/* Display serif — substitutes for Copernicus / Tiempos Headline */
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-nunito",
+  weight: ["400", "500", "600"],
+  variable: "--font-playfair",
+});
+
+/* Body sans — Inter is the Claude DESIGN.md recommended open-source substitute */
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
@@ -33,7 +41,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${nunito.variable} h-full scroll-smooth`}>
+    <html lang="en" className={`${playfair.variable} ${inter.variable} h-full scroll-smooth`}>
       <head>
         {/* Google AdSense */}
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5751907687369207" crossOrigin="anonymous" />
@@ -53,7 +61,7 @@ export default function RootLayout({
       <body
         className="min-h-full flex flex-col antialiased"
         style={{
-          fontFamily: "var(--font-nunito), system-ui, sans-serif",
+          fontFamily: "var(--font-inter), system-ui, sans-serif",
           background: "var(--warm-bg)",
           color: "var(--text-primary)",
         }}

@@ -32,6 +32,14 @@ const tests = [
     desc: "Find out which ADHD profile fits you.",
     time: "5 min",
   },
+  {
+    href: "/tests/adhd-in-women-quiz/",
+    label: "For Women",
+    title: "ADHD in Women Quiz",
+    question: "Does ADHD look different in you?",
+    desc: "Women are diagnosed late or never — find out if this fits.",
+    time: "4 min",
+  },
 ];
 
 const articles = [
@@ -76,8 +84,13 @@ export default function HomePage() {
           </span>
 
           <h1
-            className="text-4xl md:text-5xl font-extrabold leading-tight mb-5"
-            style={{ color: "var(--text-primary)", letterSpacing: "-0.02em" }}
+            className="text-4xl md:text-6xl leading-tight mb-5"
+            style={{
+              color: "var(--text-primary)",
+              fontFamily: "var(--font-playfair), Georgia, serif",
+              fontWeight: 400,
+              letterSpacing: "-0.03em",
+            }}
           >
             You&apos;re Not Lazy.<br className="hidden md:block" /> You Might Have ADHD.
           </h1>
@@ -86,28 +99,29 @@ export default function HomePage() {
             className="text-lg leading-relaxed mb-8 max-w-lg mx-auto"
             style={{ color: "var(--text-secondary)" }}
           >
-            Free ADHD screeners, symptom guides, and practical tools — for adults,
-            parents, and anyone ready to{" "}
+            You&apos;ve spent years wondering why your brain works differently.
+            Start here — free screeners, honest guides, and practical tools
+            built for the way{" "}
             <strong style={{ color: "var(--text-primary)" }}>
-              understand what&apos;s really going on.
+              your mind actually works.
             </strong>
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/tests/adult-adhd-test/"
-              className="font-bold px-7 py-4 rounded-full text-white text-base transition-opacity hover:opacity-90 shadow-sm"
+              className="font-semibold px-7 py-3.5 rounded-lg text-white text-sm transition-opacity hover:opacity-90"
               style={{ background: "var(--sage)" }}
             >
               Take the Adult ADHD Test →
             </Link>
             <Link
               href="/tests/child-adhd-test/"
-              className="font-bold px-7 py-4 rounded-full text-base border-2 transition-colors"
+              className="font-semibold px-7 py-3.5 rounded-lg text-sm border transition-colors"
               style={{
-                color: "var(--sage-dark)",
-                borderColor: "var(--sage-light)",
-                background: "transparent",
+                color: "var(--text-primary)",
+                borderColor: "var(--warm-border)",
+                background: "var(--warm-card)",
               }}
             >
               Test for My Child
@@ -124,7 +138,7 @@ export default function HomePage() {
       <section className="max-w-5xl mx-auto px-4 py-16">
         <div className="text-center mb-10">
           <h2
-            className="text-2xl md:text-3xl font-extrabold mb-2"
+            className="text-3xl md:text-4xl mb-2"
             style={{ color: "var(--text-primary)" }}
           >
             Free ADHD Screeners
@@ -133,7 +147,7 @@ export default function HomePage() {
             Research-based. Takes 3–5 minutes. No account required.
           </p>
         </div>
-        <div className="grid md:grid-cols-3 gap-5">
+        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-5">
           {tests.map((t) => (
             <Link
               key={t.href}
@@ -184,13 +198,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Facts */}
-      <section className="py-14 px-4" style={{ background: "var(--sage)" }}>
-        <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      {/* Facts — dark navy surface per Claude rhythm */}
+      <section className="py-16 px-4" style={{ background: "var(--surface-dark)" }}>
+        <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {facts.map((f) => (
             <div key={f.stat}>
-              <div className="text-3xl font-extrabold text-white mb-1">{f.stat}</div>
-              <div className="text-sm" style={{ color: "var(--sage-100)" }}>{f.label}</div>
+              <div
+                className="text-4xl mb-2"
+                style={{
+                  color: "var(--sage)",
+                  fontFamily: "var(--font-playfair), Georgia, serif",
+                  fontWeight: 400,
+                }}
+              >
+                {f.stat}
+              </div>
+              <div className="text-sm leading-snug" style={{ color: "var(--on-dark-soft)" }}>{f.label}</div>
             </div>
           ))}
         </div>
@@ -200,7 +223,7 @@ export default function HomePage() {
       <section className="max-w-5xl mx-auto px-4 py-16">
         <div className="text-center mb-10">
           <h2
-            className="text-2xl md:text-3xl font-extrabold mb-2"
+            className="text-3xl md:text-4xl mb-2"
             style={{ color: "var(--text-primary)" }}
           >
             Understand ADHD
@@ -246,80 +269,144 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Brain Dump teaser */}
-      <section className="py-16 px-4" style={{ background: "var(--sage-50)" }}>
-        <div className="max-w-2xl mx-auto text-center">
-          <span className="text-4xl mb-5 block">🌿</span>
+      {/* Tools */}
+      <section className="max-w-5xl mx-auto px-4 py-16">
+        <div className="text-center mb-10">
           <h2
-            className="text-2xl md:text-3xl font-extrabold mb-3"
+            className="text-3xl md:text-4xl mb-2"
             style={{ color: "var(--text-primary)" }}
           >
-            Too Many Things on Your Mind?
+            Free ADHD Tools
           </h2>
-          <p className="leading-relaxed mb-7 max-w-lg mx-auto" style={{ color: "var(--text-secondary)" }}>
-            The ADHD brain doesn&apos;t do well with mental clutter.
-            Try our free Brain Dump tool — clear your head in seconds.
-            No judgment. No structure required.
+          <p style={{ color: "var(--text-muted)" }}>
+            Built for the ADHD brain. No login. No cost.
           </p>
-          <Link
-            href="/tools/brain-dump/"
-            className="inline-block font-bold px-7 py-4 rounded-full text-white transition-opacity hover:opacity-90"
-            style={{ background: "var(--sage-dark)" }}
-          >
-            Try Brain Dump — Free →
-          </Link>
+        </div>
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
+          {[
+            {
+              href: "/tools/adhd-coach/",
+              icon: "🤖",
+              title: "ADHD Coach",
+              desc: "Get personalised strategies from an AI coach that understands ADHD.",
+              cta: "Chat now",
+            },
+            {
+              href: "/tools/brain-dump/",
+              icon: "🌿",
+              title: "Brain Dump",
+              desc: "Clear mental clutter in seconds. No structure required.",
+              cta: "Try it",
+            },
+            {
+              href: "/tools/focus-timer/",
+              icon: "⏱️",
+              title: "Focus Timer",
+              desc: "A distraction-free timer designed around how ADHD brains work.",
+              cta: "Start focusing",
+            },
+            {
+              href: "/tools/adhd-pomodoro-timer/",
+              icon: "🍅",
+              title: "Pomodoro Timer",
+              desc: "Work in short bursts with built-in breaks — the ADHD-friendly way.",
+              cta: "Start timer",
+            },
+            {
+              href: "/tools/body-doubling-timer/",
+              icon: "👥",
+              title: "Body Doubling Timer",
+              desc: "Work alongside a virtual partner to stay on task.",
+              cta: "Get started",
+            },
+            {
+              href: "/tools/10-minute-adhd-timer/",
+              icon: "🔟",
+              title: "10-Minute Timer",
+              desc: "Just 10 minutes. Start anything — even when motivation is zero.",
+              cta: "Go",
+            },
+          ].map((tool) => (
+            <Link
+              key={tool.href}
+              href={tool.href}
+              className="group card-hover rounded-2xl border p-6 flex flex-col transition-all"
+              style={{ background: "var(--warm-card)", borderColor: "var(--warm-border)" }}
+            >
+              <span className="text-3xl mb-3 block">{tool.icon}</span>
+              <h3
+                className="text-base font-bold mb-1"
+                style={{ color: "var(--text-primary)" }}
+              >
+                {tool.title}
+              </h3>
+              <p className="text-sm leading-relaxed mb-4 flex-1" style={{ color: "var(--text-muted)" }}>
+                {tool.desc}
+              </p>
+              <span
+                className="text-sm font-bold group-hover:translate-x-1 transition-transform inline-block"
+                style={{ color: "var(--sage-dark)" }}
+              >
+                {tool.cta} →
+              </span>
+            </Link>
+          ))}
         </div>
       </section>
 
-      {/* Newsletter + Lead Magnet */}
-      <section className="max-w-xl mx-auto px-4 py-16 text-center">
-        <span className="inline-block text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5"
-          style={{ background: "var(--sage-100)", color: "var(--sage-dark)" }}>
-          Free Download
-        </span>
-        <h2
-          className="text-2xl md:text-3xl font-extrabold mb-3"
-          style={{ color: "var(--text-primary)" }}
-        >
-          Get the Free ADHD Daily Focus Checklist
-        </h2>
-        <p className="mb-5 leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-          16 research-backed habits for morning, focus time, and evening — each one with the <em>why</em> behind it.
-          Built for how the ADHD brain actually works.
-        </p>
-        <Link
-          href="/resources/adhd-focus-checklist/"
-          className="inline-block font-bold px-7 py-4 rounded-full text-white mb-6 transition-opacity hover:opacity-90"
+      {/* CTA callout — coral full-bleed per Claude callout-card-coral */}
+      <section className="px-4 py-6">
+        <div
+          className="max-w-5xl mx-auto rounded-2xl px-8 py-14 text-center"
           style={{ background: "var(--sage)" }}
         >
-          View the Free Checklist →
-        </Link>
-        <div className="border-t pt-6" style={{ borderColor: "var(--warm-border)" }}>
-          <p className="text-sm mb-4" style={{ color: "var(--text-secondary)" }}>
-            Plus: get weekly ADHD tips and new tools delivered to your inbox.
+          <span className="inline-block text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5"
+            style={{ background: "rgba(255,255,255,0.2)", color: "#fff" }}>
+            Free Download
+          </span>
+          <h2
+            className="text-3xl md:text-4xl mb-4 text-white"
+            style={{ fontFamily: "var(--font-playfair), Georgia, serif", fontWeight: 400, letterSpacing: "-0.02em" }}
+          >
+            Get the Free ADHD Daily Focus Checklist
+          </h2>
+          <p className="mb-8 leading-relaxed max-w-lg mx-auto" style={{ color: "rgba(255,255,255,0.85)" }}>
+            16 research-backed habits for morning, focus time, and evening — each one with the <em>why</em> behind it.
           </p>
-          <form className="flex flex-col sm:flex-row gap-3">
-            <input
-              type="email"
-              placeholder="you@email.com"
-              className="flex-1 rounded-full px-5 py-3.5 text-sm outline-none border"
-              style={{
-                background: "var(--warm-card)",
-                borderColor: "var(--warm-border)",
-                color: "var(--text-primary)",
-              }}
-            />
-            <button
-              type="submit"
-              className="font-bold px-6 py-3.5 rounded-full text-white whitespace-nowrap transition-opacity hover:opacity-90"
-              style={{ background: "var(--sage-dark)" }}
-            >
-              Subscribe →
-            </button>
-          </form>
-          <p className="text-xs mt-3" style={{ color: "var(--text-muted)" }}>
-            No spam. Unsubscribe anytime.
-          </p>
+          <Link
+            href="/resources/adhd-focus-checklist/"
+            className="inline-block font-semibold px-7 py-3.5 rounded-lg text-sm mb-10 transition-opacity hover:opacity-90"
+            style={{ background: "var(--warm-bg)", color: "var(--sage-dark)" }}
+          >
+            View the Free Checklist →
+          </Link>
+          <div className="border-t pt-8" style={{ borderColor: "rgba(255,255,255,0.25)" }}>
+            <p className="text-sm mb-4" style={{ color: "rgba(255,255,255,0.8)" }}>
+              Plus: get weekly ADHD tips and new tools delivered to your inbox.
+            </p>
+            <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+              <input
+                type="email"
+                placeholder="you@email.com"
+                className="flex-1 rounded-lg px-5 py-3 text-sm outline-none border"
+                style={{
+                  background: "rgba(255,255,255,0.15)",
+                  borderColor: "rgba(255,255,255,0.3)",
+                  color: "#fff",
+                }}
+              />
+              <button
+                type="submit"
+                className="font-semibold px-6 py-3 rounded-lg text-sm whitespace-nowrap transition-opacity hover:opacity-90"
+                style={{ background: "var(--sage-dark)", color: "#fff" }}
+              >
+                Subscribe →
+              </button>
+            </form>
+            <p className="text-xs mt-3" style={{ color: "rgba(255,255,255,0.55)" }}>
+              No spam. Unsubscribe anytime.
+            </p>
+          </div>
         </div>
       </section>
     </>

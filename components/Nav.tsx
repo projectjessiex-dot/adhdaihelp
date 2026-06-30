@@ -27,9 +27,12 @@ const links: NavItem[] = [
   {
     label: "Tools",
     children: [
-      { label: "Focus Timer", href: "/tools/focus-timer/" },
       { label: "ADHD Coach", href: "/tools/adhd-coach/" },
       { label: "Brain Dump", href: "/tools/brain-dump/" },
+      { label: "Focus Timer", href: "/tools/focus-timer/" },
+      { label: "Pomodoro Timer", href: "/tools/adhd-pomodoro-timer/" },
+      { label: "Body Doubling Timer", href: "/tools/body-doubling-timer/" },
+      { label: "10-Minute Timer", href: "/tools/10-minute-adhd-timer/" },
     ],
   },
 ];
@@ -50,11 +53,11 @@ export default function Nav() {
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-2 font-extrabold text-lg"
-          style={{ color: "var(--sage-dark)" }}
+          className="flex items-center gap-2 font-semibold text-lg"
+          style={{ color: "var(--text-primary)" }}
         >
-          <span className="text-2xl">🌿</span>
-          <span>ADHD<span style={{ color: "var(--text-secondary)" }}>Clarity</span></span>
+          <span className="text-xl">🌿</span>
+          <span>ADHD<span style={{ color: "var(--sage)" }}>Clarity</span></span>
         </Link>
 
         {/* Desktop */}
@@ -117,7 +120,7 @@ export default function Nav() {
           )}
           <Link
             href="/tests/adult-adhd-test/"
-            className="text-sm font-bold px-5 py-2.5 rounded-full transition-colors text-white"
+            className="text-sm font-semibold px-5 py-2.5 rounded-lg transition-opacity hover:opacity-90 text-white"
             style={{ background: "var(--sage)" }}
           >
             Take a Test →
