@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { SparkleIcon } from "@/components/Icons";
+import ToolIcon from "@/components/ToolIcon";
 
 type Phase = "setup" | "running" | "paused" | "break" | "done";
 type Mins = 10 | 25 | 45;
@@ -139,6 +140,7 @@ export default function FocusTimer() {
 
   // ── Actions ──────────────────────────────────────────────────────────
   function start() {
+    if (!task.trim()) setTask("My focus session");
     const secs = mins * 60;
     setTimeLeft(secs);
     setTotalSecs(secs);
@@ -214,7 +216,9 @@ export default function FocusTimer() {
 
           {/* Header */}
           <div className="text-center mb-10">
-            <span className="text-5xl mb-5 block">🌿</span>
+            <div className="flex justify-center mb-5">
+              <ToolIcon name="focus-timer" theme="focus" size={28} containerSize={56} />
+            </div>
             <span
               className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4"
               style={{ background: "var(--sage-100)", color: "var(--sage-dark)" }}
@@ -238,7 +242,7 @@ export default function FocusTimer() {
             type="text"
             value={task}
             onChange={(e) => setTask(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && task.trim() && !autoStart && start()}
+            onKeyDown={(e) => e.key === "Enter" && !autoStart && start()}
             placeholder="What are you working on?"
             autoFocus
             className="w-full rounded-2xl border px-5 py-4 text-base outline-none"
@@ -357,20 +361,17 @@ export default function FocusTimer() {
             <>
               <button
                 onClick={start}
-                disabled={!task.trim()}
                 className="w-full py-4 rounded-2xl font-extrabold text-lg text-white"
                 style={{
                   background: "var(--sage)",
-                  opacity: task.trim() ? 1 : 0.4,
                   letterSpacing: "-0.01em",
-                  transition: "opacity 0.2s",
                 }}
               >
                 Start {mins}-Min Focus
               </button>
               {!task.trim() && (
                 <p className="text-center text-xs mt-3" style={{ color: "var(--text-muted)" }}>
-                  Name your task first — even one word works
+                  Optional: name what you&apos;re working on
                 </p>
               )}
             </>
@@ -441,7 +442,9 @@ export default function FocusTimer() {
       <div className="min-h-screen flex flex-col items-center justify-center px-4"
         style={{ background: "var(--warm-bg)" }}>
         <div className="w-full max-w-sm text-center">
-          <span className="text-5xl mb-5 block">🌿</span>
+          <div className="flex justify-center mb-5">
+            <ToolIcon name="focus-timer" theme="focus" size={28} containerSize={56} />
+          </div>
           <h2 className="text-2xl font-extrabold mb-2"
             style={{ color: "var(--text-primary)", letterSpacing: "-0.02em" }}>
             You did it.

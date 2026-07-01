@@ -27,7 +27,6 @@ const links: NavItem[] = [
   {
     label: "Tools",
     children: [
-      { label: "ADHD Coach", href: "/tools/adhd-coach/" },
       { label: "Brain Dump", href: "/tools/brain-dump/" },
       { label: "Focus Timer", href: "/tools/focus-timer/" },
       { label: "Pomodoro Timer", href: "/tools/adhd-pomodoro-timer/" },
@@ -57,7 +56,7 @@ export default function Nav() {
           style={{ color: "var(--text-primary)" }}
         >
           <span className="text-xl">🌿</span>
-          <span>ADHD<span style={{ color: "var(--sage)" }}>Clarity</span></span>
+          <span>ADHD<span style={{ color: "var(--brand-green)" }}>Clarity</span></span>
         </Link>
 
         {/* Desktop */}
@@ -119,11 +118,11 @@ export default function Nav() {
             )
           )}
           <Link
-            href="/tests/adult-adhd-test/"
+            href="/tools/focus-timer/"
             className="text-sm font-semibold px-5 py-2.5 rounded-lg transition-opacity hover:opacity-90 text-white"
             style={{ background: "var(--sage)" }}
           >
-            Take a Test →
+            Try a Tool →
           </Link>
         </div>
 
@@ -183,12 +182,12 @@ export default function Nav() {
             )
           )}
           <Link
-            href="/tests/adult-adhd-test/"
+            href="/tools/focus-timer/"
             className="block text-center text-sm font-bold px-5 py-3 rounded-full text-white mt-2"
             style={{ background: "var(--sage)" }}
             onClick={() => setOpen(false)}
           >
-            Take a Test →
+            Try a Tool →
           </Link>
         </div>
       )}

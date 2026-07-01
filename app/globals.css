@@ -7,12 +7,16 @@
      Substitute fonts: Playfair Display (display) + Inter (body)
   ─────────────────────────────────────────────────────────────── */
 
-  /* Primary / Brand (coral) */
-  --sage:        #cc785c;   /* {colors.primary}        coral CTA */
-  --sage-light:  #e8c4b4;   /* {colors.primary-light}  light coral tint */
-  --sage-dark:   #a9583e;   /* {colors.primary-active}  pressed / hover */
-  --sage-50:     #fdf6f3;   /* {colors.surface-soft}   very light coral bg */
-  --sage-100:    #f5e8e1;   /* {colors.surface-card-tint} */
+  /* Primary / Brand (coral) — #a95a3d gives ~4.8:1 contrast on white (WCAG AA) */
+  --sage:        #a95a3d;   /* {colors.primary}        coral CTA — accessible */
+  --sage-light:  #cc785c;   /* {colors.primary-light}  lighter coral accent */
+  --sage-dark:   #7d3520;   /* {colors.primary-active}  pressed / hover */
+  --sage-50:     #fdf4f1;   /* {colors.surface-soft}   very light coral bg */
+  --sage-100:    #f5ddd6;   /* {colors.surface-card-tint} */
+
+  /* Brand green — logo accent, icon backgrounds, completion states */
+  --brand-green:      #7f9b62;
+  --brand-green-soft: #eef4e8;
 
   /* Canvas & surfaces */
   --warm-bg:     #faf9f5;   /* {colors.canvas}          warm cream page floor */
