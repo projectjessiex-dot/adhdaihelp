@@ -17,12 +17,12 @@ type Theme = "focus" | "organize";
 
 const THEMES = {
   focus: {
-    bg: "#F6E8E2",
-    color: "#A95A3D",
+    bg: "#E4EBF1",
+    color: "#52657A",
   },
   organize: {
-    bg: "#E8EEE1",
-    color: "#6F8758",
+    bg: "#E4EBF1",
+    color: "#52657A",
   },
 };
 

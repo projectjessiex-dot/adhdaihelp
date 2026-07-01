@@ -238,7 +238,7 @@ export default function HomePage() {
                 }}
               >
                 <div className="mb-3">
-                  <ToolIcon name={tool.icon} theme="organize" />
+                  <ToolIcon name={tool.icon} theme="focus" />
                 </div>
                 <h3 className="text-sm font-bold mb-1" style={{ color: "var(--on-dark)" }}>
                   {tool.title}
@@ -265,7 +265,7 @@ export default function HomePage() {
               }}
             >
               <div className="mb-3">
-                <ToolIcon name="task-splitter" theme="organize" />
+                <ToolIcon name="task-splitter" theme="focus" />
               </div>
               <h3 className="text-sm font-bold mb-1" style={{ color: "var(--on-dark)" }}>
                 Task Splitter

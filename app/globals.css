@@ -7,30 +7,30 @@
      Substitute fonts: Playfair Display (display) + Inter (body)
   ─────────────────────────────────────────────────────────────── */
 
-  /* Primary / Brand (coral) — #a95a3d gives ~4.8:1 contrast on white (WCAG AA) */
-  --sage:        #a95a3d;   /* {colors.primary}        coral CTA — accessible */
-  --sage-light:  #cc785c;   /* {colors.primary-light}  lighter coral accent */
-  --sage-dark:   #7d3520;   /* {colors.primary-active}  pressed / hover */
-  --sage-50:     #fdf4f1;   /* {colors.surface-soft}   very light coral bg */
-  --sage-100:    #f5ddd6;   /* {colors.surface-card-tint} */
+  /* Primary / Brand (slate blue) — #52657A gives ~5.1:1 contrast on white (WCAG AA) */
+  --sage:        #52657A;   /* {colors.primary}        slate-blue CTA */
+  --sage-light:  #7a90a4;   /* {colors.primary-light}  lighter blue accent */
+  --sage-dark:   #435469;   /* {colors.primary-active}  pressed / hover */
+  --sage-50:     #f0f4f7;   /* {colors.surface-soft}   very light blue bg */
+  --sage-100:    #dce5ed;   /* {colors.surface-card-tint} */
 
-  /* Brand green — logo accent, icon backgrounds, completion states */
+  /* Brand green — 🌿 logo mark only, not used as functional color */
   --brand-green:      #7f9b62;
   --brand-green-soft: #eef4e8;
 
   /* Canvas & surfaces */
   --warm-bg:     #faf9f5;   /* {colors.canvas}          warm cream page floor */
-  --warm-card:   #efe9de;   /* {colors.surface-card}    feature card cream */
-  --warm-border: #e6dfd8;   /* {colors.hairline}        1px border on cream */
+  --warm-card:   #f0ece5;   /* {colors.surface-card}    feature card warm */
+  --warm-border: #ded8cf;   /* {colors.hairline}        1px border */
 
   /* Dark surfaces */
-  --surface-dark:         #181715;  /* {colors.surface-dark}    navy dark */
+  --surface-dark:         #20211f;  /* {colors.surface-dark}    deep dark */
   --surface-dark-elevated:#252320;  /* {colors.surface-dark-elevated} */
   --on-dark:              #faf9f5;  /* {colors.on-dark}          text on dark */
   --on-dark-soft:         #a09d96;  /* {colors.on-dark-soft}     secondary on dark */
 
   /* Text */
-  --text-primary:   #141413;  /* {colors.ink}   warm near-black */
+  --text-primary:   #1c1c1a;  /* {colors.ink}   near-black */
   --text-secondary: #3d3d3a;  /* {colors.body}  default body text */
   --text-muted:     #6c6a64;  /* {colors.muted} captions, helper */
 

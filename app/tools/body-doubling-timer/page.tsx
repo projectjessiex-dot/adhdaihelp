@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PersonIcon, ClockIcon, HeartIcon, SparkleIcon } from "@/components/Icons";
+import BodyDoublingTimer from "./BodyDoublingTimer";
 
 export const metadata: Metadata = {
-  title: "Body Doubling Timer for ADHD — Focus With a Virtual Presence",
+  title: "Virtual Co-working Session — Work Alongside a Virtual Partner",
   description:
-    "Body doubling is one of the most effective ADHD strategies. Use this free timer to simulate that accountability presence and finally start the tasks you've been avoiding.",
+    "A free virtual co-working session. Name your task, set your time, and work alongside a virtual partner. Includes a mid-session check-in and a gentle reflection at the end.",
 };
 
 const faqSchema = {
@@ -17,7 +18,7 @@ const faqSchema = {
       name: "What is body doubling for ADHD?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Body doubling is a productivity strategy where a person with ADHD works alongside another person — not for help, just for presence. The 'body double' doesn't need to do the same task or even interact. Simply having another person in the room (or on a video call) creates enough ambient accountability for the ADHD brain to stay on task. It's one of the most consistently reported strategies among adults with ADHD.",
+        text: "Body doubling is a focus strategy where you work alongside another person — not for help, just for presence. The other person doesn't need to do the same task or even interact. Many people find that having someone nearby makes it easier to start and stay on a task.",
       },
     },
     {
@@ -25,7 +26,7 @@ const faqSchema = {
       name: "Why does body doubling help ADHD?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "ADHD is partly a disorder of self-regulation — the brain struggles to generate internal motivation without external stimulation. Another person's presence activates the brain's social awareness systems, creating low-level accountability that provides the neurological push ADHD brains need. Some researchers link this to mirror neuron activation and the way social presence raises dopamine availability in the prefrontal cortex. It works even through screens, which explains the popularity of virtual co-working sessions.",
+        text: "Many people find it easier to focus when someone else is present — even quietly. The awareness that another person is nearby can make it easier to stay on task. Virtual co-working sessions work on the same principle: the shared commitment to showing up creates a gentle external structure.",
       },
     },
     {
@@ -33,7 +34,7 @@ const faqSchema = {
       name: "Can a timer replace body doubling?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "A timer can't fully replicate the social element of body doubling, but it provides a complementary mechanism: external time structure. The countdown creates artificial urgency — the same neurological lever that body doubling pulls via social accountability. Many people with ADHD find that combining both strategies (using a timer during a virtual co-working session) produces better results than either alone. If a body double isn't available, a focused timer with a specific task name is the next best option.",
+        text: "A timer can't replicate the social element of working with another person, but it adds useful structure: a visible countdown, a named task, and a clear end point. Many people find that combining a timer with a co-working session — virtual or in person — works better than either alone. If no one is available, a timer with a specific task name is a reasonable starting point.",
       },
     },
     {
@@ -50,18 +51,18 @@ const faqSchema = {
 const reasons = [
   {
     icon: <PersonIcon size={22} color="var(--sage-dark)" />,
-    title: "Simulates accountability",
-    desc: "Naming your task and starting a timer creates a contract with yourself — the same mechanism that makes body doubling work.",
+    title: "Adds external structure",
+    desc: "Naming your task and committing to a time block gives you something concrete to return to when focus drifts.",
   },
   {
     icon: <ClockIcon size={22} color="var(--sage-dark)" />,
-    title: "Creates external structure",
-    desc: "ADHD brains can't self-generate time pressure. A visible countdown does it externally — no social anxiety required.",
+    title: "A visible countdown",
+    desc: "A timer makes time concrete. It marks a clear start and end — reducing the open-ended feeling that makes starting hard.",
   },
   {
     icon: <HeartIcon size={22} color="var(--sage-dark)" />,
-    title: "Reduces isolation",
-    desc: "Pair this timer with a virtual co-working session for the full body doubling effect — presence + structure combined.",
+    title: "Built-in check-in",
+    desc: "Halfway through, the session pauses for a quick check-in — helping you adjust if something isn't working.",
   },
 ];
 
@@ -73,37 +74,18 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* Hero */}
-      <section className="px-4 pt-16 pb-14 text-center" style={{ background: "var(--sage-50)" }}>
-        <div className="max-w-2xl mx-auto">
-          <span
-            className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-5"
-            style={{ background: "var(--sage-100)", color: "var(--sage-dark)" }}
-          >
-            Free Tool · No Sign-Up
-          </span>
-          <h1
-            className="text-3xl md:text-4xl font-extrabold mb-4 leading-tight"
-            style={{ color: "var(--text-primary)", letterSpacing: "-0.02em" }}
-          >
-            Body Doubling Timer
-          </h1>
-          <p
-            className="text-lg leading-relaxed mb-8 max-w-xl mx-auto"
-            style={{ color: "var(--text-secondary)" }}
-          >
-            Body doubling is one of the most effective ADHD strategies — and you don&apos;t always need
-            another person. A focused timer with a named task creates the same{" "}
-            <strong style={{ color: "var(--text-primary)" }}>external accountability structure</strong>{" "}
-            your brain needs to start.
+      {/* Timer — embedded directly */}
+      <BodyDoublingTimer />
+
+      {/* Brief intro */}
+      <section className="px-4 py-10 text-center" style={{ background: "var(--sage-50)" }}>
+        <div className="max-w-xl mx-auto">
+          <p className="text-base leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+            Body doubling — working alongside another person — is a strategy many people find helpful
+            for getting started. This tool creates a virtual version: name your task, commit to a time,
+            and work with a <strong style={{ color: "var(--text-primary)" }}>virtual presence</strong>{" "}
+            holding the space with you.
           </p>
-          <Link
-            href="/tools/focus-timer/"
-            className="inline-block font-bold px-8 py-4 rounded-full text-white text-base transition-opacity hover:opacity-90"
-            style={{ background: "var(--sage)" }}
-          >
-            Start Body Doubling Session →
-          </Link>
         </div>
       </section>
 
@@ -160,29 +142,6 @@ export default function Page() {
           of social accountability and structured time is particularly effective for executive
           dysfunction and task initiation failure.
         </p>
-      </section>
-
-      {/* CTA */}
-      <section className="py-14 px-4 text-center" style={{ background: "var(--sage-50)" }}>
-        <div className="max-w-xl mx-auto">
-          <SparkleIcon size={36} color="var(--sage)" className="mx-auto mb-4" />
-          <h2
-            className="text-2xl font-extrabold mb-3"
-            style={{ color: "var(--text-primary)", letterSpacing: "-0.01em" }}
-          >
-            You don&apos;t need to wait for a body double.
-          </h2>
-          <p className="mb-7" style={{ color: "var(--text-secondary)" }}>
-            Name your task. Set 10 minutes. The timer holds the space for you.
-          </p>
-          <Link
-            href="/tools/focus-timer/"
-            className="inline-block font-bold px-8 py-4 rounded-full text-white transition-opacity hover:opacity-90"
-            style={{ background: "var(--sage-dark)" }}
-          >
-            Start Timer — Free →
-          </Link>
-        </div>
       </section>
 
       {/* FAQ */}
