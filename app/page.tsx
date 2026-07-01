@@ -134,6 +134,91 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Recognition — "Does this sound familiar?" */}
+      <section className="px-4 py-20" style={{ background: "var(--surface-dark)" }}>
+        <div className="max-w-3xl mx-auto">
+
+          {/* Label */}
+          <p
+            className="text-xs font-semibold uppercase tracking-widest mb-4 text-center"
+            style={{ color: "var(--sage)" }}
+          >
+            You&apos;re not alone
+          </p>
+
+          {/* Headline */}
+          <h2
+            className="text-3xl md:text-4xl text-center mb-12"
+            style={{
+              color: "var(--on-dark)",
+              fontFamily: "var(--font-playfair), Georgia, serif",
+              fontWeight: 400,
+              letterSpacing: "-0.02em",
+            }}
+          >
+            Does any of this sound familiar?
+          </h2>
+
+          {/* Experience items */}
+          <div className="grid md:grid-cols-2 gap-3 mb-14">
+            {[
+              "You opened 8 tabs to get something done — and closed them all without finishing any.",
+              "You told yourself you'd start at 2pm. Then 2:15. Then \"okay, 3 o'clock for real this time.\"",
+              "You've read the same paragraph four times and still have no idea what it said.",
+              "You work three times harder than everyone else, just to keep up.",
+              "People call you lazy — but you know exactly how much effort every single day takes.",
+              "You have a brilliant idea, dive in with full energy — then abandon it when the excitement fades.",
+              "You're always running late, always forgetting something, always just barely holding it together.",
+              "You feel like everyone else got a manual for life that you never received.",
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="flex gap-4 p-5 rounded-xl"
+                style={{ background: "var(--surface-dark-elevated)" }}
+              >
+                <span
+                  className="text-base mt-0.5 flex-shrink-0"
+                  style={{ color: "var(--sage)" }}
+                >
+                  ◦
+                </span>
+                <p className="text-sm leading-relaxed" style={{ color: "var(--on-dark-soft)" }}>
+                  {item}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Emotional close + CTA */}
+          <div className="text-center">
+            <p
+              className="text-xl md:text-2xl mb-8 max-w-xl mx-auto leading-snug"
+              style={{
+                color: "var(--on-dark)",
+                fontFamily: "var(--font-playfair), Georgia, serif",
+                fontWeight: 400,
+                fontStyle: "italic",
+              }}
+            >
+              If you nodded at any of these —<br />
+              you&apos;re not broken. You&apos;re not lazy.<br />
+              You might just have ADHD.
+            </p>
+            <Link
+              href="/tests/adult-adhd-test/"
+              className="inline-block font-semibold px-8 py-4 rounded-lg text-sm transition-opacity hover:opacity-90"
+              style={{ background: "var(--sage)", color: "#fff" }}
+            >
+              Find out in 3 minutes →
+            </Link>
+            <p className="text-xs mt-3" style={{ color: "var(--on-dark-soft)" }}>
+              Free · No account · Based on clinical research
+            </p>
+          </div>
+
+        </div>
+      </section>
+
       {/* Tests */}
       <section className="max-w-5xl mx-auto px-4 py-16">
         <div className="text-center mb-10">
