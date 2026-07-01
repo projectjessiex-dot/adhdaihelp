@@ -1,46 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import TestsSelector from "@/components/TestsSelector";
 
 export const metadata: Metadata = {
   title: "ADHD Clarity — Free ADHD Tests, Guides & Tools",
   description:
     "Do you think you might have ADHD? Take a free, research-based screener, read expert guides, and discover practical tools — for adults, parents, and educators.",
 };
-
-const tests = [
-  {
-    href: "/tests/adult-adhd-test/",
-    label: "For Adults",
-    title: "Adult ADHD Self-Test",
-    question: "Could I have ADHD?",
-    desc: "Based on the clinically validated ASRS screener.",
-    time: "3 min",
-  },
-  {
-    href: "/tests/child-adhd-test/",
-    label: "For Parents",
-    title: "Child ADHD Screener",
-    question: "Is my child showing signs of ADHD?",
-    desc: "Based on DSM-5 criteria.",
-    time: "4 min",
-  },
-  {
-    href: "/tests/adhd-type-quiz/",
-    label: "For Everyone",
-    title: "ADHD Type Quiz",
-    question: "Inattentive, hyperactive, or combined?",
-    desc: "Find out which ADHD profile fits you.",
-    time: "5 min",
-  },
-  {
-    href: "/tests/adhd-in-women-quiz/",
-    label: "For Women",
-    title: "ADHD in Women Quiz",
-    question: "Does ADHD look different in you?",
-    desc: "Women are diagnosed late or never — find out if this fits.",
-    time: "4 min",
-  },
-];
 
 const articles = [
   {
@@ -70,10 +36,48 @@ const facts = [
   { stat: "3×", label: "more likely to also have anxiety" },
 ];
 
+const tools = [
+  {
+    href: "/tools/brain-dump/",
+    icon: "🌿",
+    title: "Brain Dump",
+    desc: "Clear mental clutter in seconds. No structure required.",
+    cta: "Try it",
+  },
+  {
+    href: "/tools/focus-timer/",
+    icon: "⏱️",
+    title: "Focus Timer",
+    desc: "A distraction-free timer designed around how ADHD brains work.",
+    cta: "Start focusing",
+  },
+  {
+    href: "/tools/adhd-pomodoro-timer/",
+    icon: "🍅",
+    title: "Pomodoro Timer",
+    desc: "Work in short bursts with built-in breaks — the ADHD-friendly way.",
+    cta: "Start timer",
+  },
+  {
+    href: "/tools/body-doubling-timer/",
+    icon: "👥",
+    title: "Body Doubling Timer",
+    desc: "Work alongside a virtual partner to stay on task.",
+    cta: "Get started",
+  },
+  {
+    href: "/tools/10-minute-adhd-timer/",
+    icon: "🔟",
+    title: "10-Minute Timer",
+    desc: "Just 10 minutes. Start anything — even when motivation is zero.",
+    cta: "Go",
+  },
+];
+
 export default function HomePage() {
   return (
     <>
-      {/* Hero */}
+      {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="px-4 pt-20 pb-24 text-center" style={{ background: "var(--warm-bg)" }}>
         <div className="max-w-2xl mx-auto">
           <span
@@ -134,19 +138,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Recognition — "Does this sound familiar?" */}
+      {/* ── Recognition — "Does this sound familiar?" ────────── */}
       <section className="px-4 py-20" style={{ background: "var(--surface-dark)" }}>
         <div className="max-w-3xl mx-auto">
-
-          {/* Label */}
           <p
             className="text-xs font-semibold uppercase tracking-widest mb-4 text-center"
             style={{ color: "var(--sage)" }}
           >
             You&apos;re not alone
           </p>
-
-          {/* Headline */}
           <h2
             className="text-3xl md:text-4xl text-center mb-12"
             style={{
@@ -159,7 +159,6 @@ export default function HomePage() {
             Does any of this sound familiar?
           </h2>
 
-          {/* Experience items */}
           <div className="grid md:grid-cols-2 gap-3 mb-14">
             {[
               "You opened 8 tabs to get something done — and closed them all without finishing any.",
@@ -176,12 +175,7 @@ export default function HomePage() {
                 className="flex gap-4 p-5 rounded-xl"
                 style={{ background: "var(--surface-dark-elevated)" }}
               >
-                <span
-                  className="text-base mt-0.5 flex-shrink-0"
-                  style={{ color: "var(--sage)" }}
-                >
-                  ◦
-                </span>
+                <span className="text-base mt-0.5 flex-shrink-0" style={{ color: "var(--sage)" }}>◦</span>
                 <p className="text-sm leading-relaxed" style={{ color: "var(--on-dark-soft)" }}>
                   {item}
                 </p>
@@ -189,7 +183,6 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* Emotional close + CTA */}
           <div className="text-center">
             <p
               className="text-xl md:text-2xl mb-8 max-w-xl mx-auto leading-snug"
@@ -215,103 +208,68 @@ export default function HomePage() {
               Free · No account · Based on clinical research
             </p>
           </div>
-
         </div>
       </section>
 
-      {/* Tests */}
+      {/* ── Tests — two-step selector ─────────────────────────── */}
       <section className="max-w-5xl mx-auto px-4 py-16">
         <div className="text-center mb-10">
           <h2
             className="text-3xl md:text-4xl mb-2"
             style={{ color: "var(--text-primary)" }}
           >
-            Free ADHD Screeners
+            Which one sounds like you?
           </h2>
           <p style={{ color: "var(--text-muted)" }}>
             Research-based. Takes 3–5 minutes. No account required.
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-5">
-          {tests.map((t) => (
-            <Link
-              key={t.href}
-              href={t.href}
-              className="group card-hover rounded-2xl border transition-all overflow-hidden flex flex-col"
-              style={{
-                background: "var(--warm-card)",
-                borderColor: "var(--warm-border)",
-              }}
-            >
-              <div style={{ background: "var(--sage)", height: "3px" }} />
-              <div className="p-6 flex flex-col flex-1">
-                <span
-                  className="text-xs font-bold uppercase tracking-wider"
-                  style={{ color: "var(--sage)" }}
+        <TestsSelector />
+      </section>
+
+      {/* ── Facts — with emotional framing ───────────────────── */}
+      <section className="py-16 px-4" style={{ background: "var(--surface-dark)" }}>
+        <div className="max-w-4xl mx-auto">
+          <p
+            className="text-center text-base mb-12 max-w-xl mx-auto"
+            style={{
+              color: "var(--on-dark-soft)",
+              fontFamily: "var(--font-playfair), Georgia, serif",
+              fontStyle: "italic",
+            }}
+          >
+            You may have spent years looking for answers. These numbers show why it takes so long — and why it matters.
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            {facts.map((f) => (
+              <div key={f.stat}>
+                <div
+                  className="text-4xl mb-2"
+                  style={{
+                    color: "var(--sage)",
+                    fontFamily: "var(--font-playfair), Georgia, serif",
+                    fontWeight: 400,
+                  }}
                 >
-                  {t.label}
-                </span>
-                <h3
-                  className="text-lg font-bold mt-1 mb-1"
-                  style={{ color: "var(--text-primary)" }}
-                >
-                  {t.title}
-                </h3>
-                <p
-                  className="text-base font-semibold mb-1"
-                  style={{ color: "var(--text-secondary)" }}
-                >
-                  {t.question}
-                </p>
-                <p className="text-sm leading-relaxed mb-4" style={{ color: "var(--text-muted)" }}>
-                  {t.desc}
-                </p>
-                <div className="flex items-center justify-between mt-auto">
-                  <span className="text-xs" style={{ color: "var(--text-muted)" }}>
-                    {t.time}
-                  </span>
-                  <span
-                    className="font-bold text-sm group-hover:translate-x-1 transition-transform inline-block"
-                    style={{ color: "var(--sage-dark)" }}
-                  >
-                    Start →
-                  </span>
+                  {f.stat}
+                </div>
+                <div className="text-sm leading-snug" style={{ color: "var(--on-dark-soft)" }}>
+                  {f.label}
                 </div>
               </div>
-            </Link>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Facts — dark navy surface per Claude rhythm */}
-      <section className="py-16 px-4" style={{ background: "var(--surface-dark)" }}>
-        <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          {facts.map((f) => (
-            <div key={f.stat}>
-              <div
-                className="text-4xl mb-2"
-                style={{
-                  color: "var(--sage)",
-                  fontFamily: "var(--font-playfair), Georgia, serif",
-                  fontWeight: 400,
-                }}
-              >
-                {f.stat}
-              </div>
-              <div className="text-sm leading-snug" style={{ color: "var(--on-dark-soft)" }}>{f.label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Learn */}
+      {/* ── Learn ─────────────────────────────────────────────── */}
       <section className="max-w-5xl mx-auto px-4 py-16">
         <div className="text-center mb-10">
           <h2
             className="text-3xl md:text-4xl mb-2"
             style={{ color: "var(--text-primary)" }}
           >
-            Understand ADHD
+            Finally, words that explain it
           </h2>
           <p style={{ color: "var(--text-muted)" }}>
             Research-backed guides written for real people, not clinicians.
@@ -354,82 +312,81 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Tools */}
-      <section className="max-w-5xl mx-auto px-4 py-16">
+      {/* ── ADHD Coach spotlight ──────────────────────────────── */}
+      <section className="max-w-5xl mx-auto px-4 pb-16">
+        <Link
+          href="/tools/adhd-coach/"
+          className="group flex flex-col md:flex-row items-center gap-8 rounded-2xl p-8 md:p-10 transition-opacity hover:opacity-95"
+          style={{ background: "var(--surface-dark)" }}
+        >
+          <div className="flex-1 text-left">
+            <span
+              className="text-xs font-semibold uppercase tracking-widest mb-3 block"
+              style={{ color: "var(--sage)" }}
+            >
+              Most popular tool
+            </span>
+            <h2
+              className="text-2xl md:text-3xl mb-3"
+              style={{
+                color: "var(--on-dark)",
+                fontFamily: "var(--font-playfair), Georgia, serif",
+                fontWeight: 400,
+                letterSpacing: "-0.02em",
+              }}
+            >
+              Talk to an ADHD Coach — right now
+            </h2>
+            <p className="text-sm leading-relaxed mb-6" style={{ color: "var(--on-dark-soft)" }}>
+              Describe what you&apos;re struggling with today. Get a personalised response that
+              actually understands how the ADHD brain works — not generic advice.
+            </p>
+            <span
+              className="inline-block font-semibold px-6 py-3 rounded-lg text-sm transition-opacity group-hover:opacity-90"
+              style={{ background: "var(--sage)", color: "#fff" }}
+            >
+              Start a conversation →
+            </span>
+          </div>
+          <div
+            className="hidden md:flex items-center justify-center rounded-xl w-28 h-28 text-5xl flex-shrink-0"
+            style={{ background: "var(--surface-dark-elevated)" }}
+          >
+            💬
+          </div>
+        </Link>
+      </section>
+
+      {/* ── Tools ─────────────────────────────────────────────── */}
+      <section className="max-w-5xl mx-auto px-4 pb-16">
         <div className="text-center mb-10">
           <h2
             className="text-3xl md:text-4xl mb-2"
             style={{ color: "var(--text-primary)" }}
           >
-            Free ADHD Tools
+            Built for how your brain actually works
           </h2>
           <p style={{ color: "var(--text-muted)" }}>
-            Built for the ADHD brain. No login. No cost.
+            No login. No cost. Use them right now.
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
-          {[
-            {
-              href: "/tools/adhd-coach/",
-              icon: "🤖",
-              title: "ADHD Coach",
-              desc: "Get personalised strategies from an AI coach that understands ADHD.",
-              cta: "Chat now",
-            },
-            {
-              href: "/tools/brain-dump/",
-              icon: "🌿",
-              title: "Brain Dump",
-              desc: "Clear mental clutter in seconds. No structure required.",
-              cta: "Try it",
-            },
-            {
-              href: "/tools/focus-timer/",
-              icon: "⏱️",
-              title: "Focus Timer",
-              desc: "A distraction-free timer designed around how ADHD brains work.",
-              cta: "Start focusing",
-            },
-            {
-              href: "/tools/adhd-pomodoro-timer/",
-              icon: "🍅",
-              title: "Pomodoro Timer",
-              desc: "Work in short bursts with built-in breaks — the ADHD-friendly way.",
-              cta: "Start timer",
-            },
-            {
-              href: "/tools/body-doubling-timer/",
-              icon: "👥",
-              title: "Body Doubling Timer",
-              desc: "Work alongside a virtual partner to stay on task.",
-              cta: "Get started",
-            },
-            {
-              href: "/tools/10-minute-adhd-timer/",
-              icon: "🔟",
-              title: "10-Minute Timer",
-              desc: "Just 10 minutes. Start anything — even when motivation is zero.",
-              cta: "Go",
-            },
-          ].map((tool) => (
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          {tools.map((tool) => (
             <Link
               key={tool.href}
               href={tool.href}
-              className="group card-hover rounded-2xl border p-6 flex flex-col transition-all"
+              className="group card-hover rounded-2xl border p-5 flex flex-col transition-all"
               style={{ background: "var(--warm-card)", borderColor: "var(--warm-border)" }}
             >
-              <span className="text-3xl mb-3 block">{tool.icon}</span>
-              <h3
-                className="text-base font-bold mb-1"
-                style={{ color: "var(--text-primary)" }}
-              >
+              <span className="text-2xl mb-3 block">{tool.icon}</span>
+              <h3 className="text-sm font-bold mb-1" style={{ color: "var(--text-primary)" }}>
                 {tool.title}
               </h3>
-              <p className="text-sm leading-relaxed mb-4 flex-1" style={{ color: "var(--text-muted)" }}>
+              <p className="text-xs leading-relaxed mb-3 flex-1" style={{ color: "var(--text-muted)" }}>
                 {tool.desc}
               </p>
               <span
-                className="text-sm font-bold group-hover:translate-x-1 transition-transform inline-block"
+                className="text-xs font-bold group-hover:translate-x-1 transition-transform inline-block"
                 style={{ color: "var(--sage-dark)" }}
               >
                 {tool.cta} →
@@ -439,19 +396,55 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA callout — coral full-bleed per Claude callout-card-coral */}
+      {/* ── Testimonial ───────────────────────────────────────── */}
+      <section className="px-4 py-16" style={{ background: "var(--warm-card)" }}>
+        <div className="max-w-2xl mx-auto text-center">
+          <p
+            className="text-xs font-semibold uppercase tracking-widest mb-10"
+            style={{ color: "var(--sage)" }}
+          >
+            Real people, real answers
+          </p>
+          <blockquote>
+            <p
+              className="text-xl md:text-2xl leading-relaxed mb-6"
+              style={{
+                color: "var(--text-primary)",
+                fontFamily: "var(--font-playfair), Georgia, serif",
+                fontWeight: 400,
+                fontStyle: "italic",
+              }}
+            >
+              &ldquo;I&apos;ve known something was different about me my whole life.
+              Taking this test was the first time I felt like someone
+              finally got it.&rdquo;
+            </p>
+            <footer className="text-sm" style={{ color: "var(--text-muted)" }}>
+              — Sarah, 34 · Diagnosed at 32
+            </footer>
+          </blockquote>
+        </div>
+      </section>
+
+      {/* ── CTA callout ───────────────────────────────────────── */}
       <section className="px-4 py-6">
         <div
           className="max-w-5xl mx-auto rounded-2xl px-8 py-14 text-center"
           style={{ background: "var(--sage)" }}
         >
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5"
-            style={{ background: "rgba(255,255,255,0.2)", color: "#fff" }}>
+          <span
+            className="inline-block text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5"
+            style={{ background: "rgba(255,255,255,0.2)", color: "#fff" }}
+          >
             Free Download
           </span>
           <h2
             className="text-3xl md:text-4xl mb-4 text-white"
-            style={{ fontFamily: "var(--font-playfair), Georgia, serif", fontWeight: 400, letterSpacing: "-0.02em" }}
+            style={{
+              fontFamily: "var(--font-playfair), Georgia, serif",
+              fontWeight: 400,
+              letterSpacing: "-0.02em",
+            }}
           >
             Get the Free ADHD Daily Focus Checklist
           </h2>
