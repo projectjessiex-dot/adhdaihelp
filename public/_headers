@@ -1,0 +1,12 @@
+# Next.js hashed static assets — content-addressed, safe to cache 1 year
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Public icons / images
+/icons/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+# All HTML pages — CDN caches 24h, browser always revalidates
+# Cloudflare Pages purges this automatically on each deploy
+/*
+  Cache-Control: public, max-age=0, s-maxage=86400, stale-while-revalidate=86400
