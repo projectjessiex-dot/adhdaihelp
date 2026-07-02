@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import { SparkleIcon } from "@/components/Icons";
 import ToolIcon from "@/components/ToolIcon";
+import { trackEvent } from "@/lib/analytics";
 
 type Phase = "setup" | "running" | "paused" | "break" | "done";
 type Mins = 10 | 25 | 45;
@@ -79,12 +80,12 @@ function Ring({
   );
 }
 
-export default function FocusTimer() {
+export default function FocusTimer({ defaultMins = 10 }: { defaultMins?: Mins }) {
   const [phase, setPhase]         = useState<Phase>("setup");
   const [task, setTask]           = useState("");
-  const [mins, setMins]           = useState<Mins>(10);
-  const [timeLeft, setTimeLeft]   = useState(10 * 60);
-  const [totalSecs, setTotalSecs] = useState(10 * 60);
+  const [mins, setMins]           = useState<Mins>(defaultMins);
+  const [timeLeft, setTimeLeft]   = useState(defaultMins * 60);
+  const [totalSecs, setTotalSecs] = useState(defaultMins * 60);
   const [showDump, setShowDump]   = useState(false);
   const [dumpText, setDumpText]   = useState("");
   const [aiLoading, setAiLoading] = useState(false);
@@ -114,6 +115,14 @@ export default function FocusTimer() {
       setPhase("done");
     }
   }, [timeLeft, phase]);
+
+  // Fire tool_complete when session finishes
+  useEffect(() => {
+    if (phase === "done") {
+      trackEvent("tool_complete", { tool_name: "focus_timer", tool_duration: mins });
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase]);
 
   // Rotate nudge every 30 s during focus
   useEffect(() => {
@@ -146,6 +155,7 @@ export default function FocusTimer() {
     setTotalSecs(secs);
     setNudgeIdx(0);
     setPhase("running");
+    trackEvent("tool_start", { tool_name: "focus_timer", tool_duration: mins });
   }
 
   function stop() {
@@ -165,9 +175,9 @@ export default function FocusTimer() {
     setShowDump(false);
     setDumpText("");
     setAutoStart(null);
-    setMins(10);
-    setTimeLeft(10 * 60);
-    setTotalSecs(10 * 60);
+    setMins(defaultMins);
+    setTimeLeft(defaultMins * 60);
+    setTotalSecs(defaultMins * 60);
   }
 
   function quickStart10() {
@@ -176,6 +186,7 @@ export default function FocusTimer() {
     setTotalSecs(10 * 60);
     setNudgeIdx(0);
     setPhase("running");
+    trackEvent("tool_start", { tool_name: "focus_timer", tool_duration: 10 });
   }
 
   async function getStep() {

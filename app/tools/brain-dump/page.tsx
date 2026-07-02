@@ -1,129 +1,218 @@
-"use client";
+import type { Metadata } from "next";
+import Link from "next/link";
+import BrainDump from "./BrainDump";
+import ShareButton from "@/components/ShareButton";
+import ToolIcon from "@/components/ToolIcon";
 
-import React, { useState, useRef } from "react";
-import { PenIcon, WindIcon, TrashIcon, SparkleIcon, LockIcon } from "@/components/Icons";
+export const metadata: Metadata = {
+  title: "Brain Dump — Clear Your Head and Find Your Next Step",
+  description:
+    "A free brain dump tool for when your head is too full to start. Type out everything swirling in your mind, then pick one thing. No sign-up, nothing saved.",
+  alternates: {
+    canonical: "https://adhdaihelp.com/tools/brain-dump/",
+  },
+};
 
-export default function BrainDump() {
-  const [text, setText]       = useState("");
-  const [cleared, setCleared] = useState(false);
-  const textareaRef           = useRef<HTMLTextAreaElement>(null);
+const webAppSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "Brain Dump",
+  url: "https://adhdaihelp.com/tools/brain-dump/",
+  description:
+    "A free private writing space to empty your mind when overwhelmed. Type everything out, then pick one next step.",
+  applicationCategory: "ProductivityApplication",
+  operatingSystem: "All",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+  },
+};
 
-  const wordCount = text.trim() === "" ? 0 : text.trim().split(/\s+/).length;
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is a brain dump and how does it help with ADHD?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "A brain dump is the practice of writing down everything in your head — tasks, worries, half-formed ideas, things you're afraid you'll forget — without organizing or filtering. For people with ADHD, working memory is often unreliable, which means the brain keeps cycling through thoughts to avoid forgetting them. Getting those thoughts out of your head and onto a page (or screen) stops that cycle, reduces mental load, and makes it easier to focus on one thing at a time.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Why can't I just make a to-do list instead?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "A to-do list requires you to organize before you've unloaded, which adds friction when your head is already full. A brain dump comes first — it's unstructured on purpose. You write without judging, sorting, or prioritizing. Once everything is out, you can look at it and choose one next step. The brain dump removes the mental clutter that makes building a list feel impossible.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is my brain dump saved anywhere?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No. This tool runs entirely in your browser. Nothing you type is sent to a server, saved to a database, or stored anywhere. When you close the tab, it's gone. This is intentional — the goal is a private space to think out loud without consequence.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What do I do after a brain dump?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Read through what you wrote and pick just one thing — the smallest, most concrete next action. Not the most important, not the most urgent. Just one thing you can do right now. Then start a timer (10 minutes works well) and begin. The goal isn't to process your whole list — it's to get unstuck and moving.",
+      },
+    },
+  ],
+};
 
-  const handleClear = () => {
-    setText("");
-    setCleared(true);
-    setTimeout(() => {
-      setCleared(false);
-      textareaRef.current?.focus();
-    }, 2000);
-  };
+const relatedTools = [
+  {
+    href: "/tools/10-minute-adhd-timer/",
+    icon: "ten-minute" as const,
+    title: "10-Minute Focus Timer",
+    desc: "After your brain dump, pick one thing and start a 10-minute timer. Short enough to actually begin.",
+  },
+  {
+    href: "/tools/body-doubling-timer/",
+    icon: "body-doubling" as const,
+    title: "Virtual Co-working Session",
+    desc: "Work alongside a virtual partner. Useful when you need more than a timer to get started.",
+  },
+];
 
+export default function Page() {
   return (
-    <div className="min-h-screen px-4 py-14" style={{ background: "var(--warm-bg)" }}>
-      <div className="max-w-2xl mx-auto">
+    <div className="min-h-screen" style={{ background: "var(--warm-bg)" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
 
-        {/* Header */}
-        <div className="text-center mb-10">
-          <span className="text-5xl mb-5 block">🌿</span>
-          <h1 className="text-3xl md:text-4xl font-extrabold mb-3" style={{ color: "var(--text-primary)" }}>
-            Brain Dump
-          </h1>
-          <p className="text-lg leading-relaxed max-w-lg mx-auto" style={{ color: "var(--text-secondary)" }}>
-            Get everything out of your head. No structure required.
-            No judgment. Just type until it feels lighter.
+      {/* Tool — embedded directly */}
+      <BrainDump />
+
+      {/* Brief intro */}
+      <section className="px-4 py-10 text-center" style={{ background: "var(--sage-50)" }}>
+        <div className="max-w-xl mx-auto space-y-4">
+          <p className="text-base leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+            When your head is too full to start, trying to organize only makes it worse.
+            Brain dumping — getting everything out first, structuring later — is a faster
+            path to{" "}
+            <strong style={{ color: "var(--text-primary)" }}>actually moving</strong>.
+          </p>
+          <ShareButton label="Share this tool" />
+        </div>
+      </section>
+
+      {/* Why it works */}
+      <section className="max-w-2xl mx-auto px-4 py-14 space-y-5">
+        <h2
+          className="text-xl font-extrabold mb-4"
+          style={{ color: "var(--text-primary)" }}
+        >
+          Why emptying your head helps you focus
+        </h2>
+        <p className="leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+          Working memory — the mental space used to hold and manipulate information — is often
+          unreliable when you have ADHD. To compensate, the brain keeps looping through thoughts
+          to avoid losing them. This loop uses mental energy and makes it hard to focus on any
+          single task, because the background process of &quot;don&apos;t forget this&quot; keeps
+          interrupting.
+        </p>
+        <p className="leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+          A brain dump short-circuits that loop. Once something is written down, the brain no
+          longer needs to hold it. The mental clutter clears, and choosing what to do next becomes
+          much simpler — not because your task list got shorter, but because your head did.
+        </p>
+        <p className="leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+          The key difference from a to-do list: a brain dump is unstructured on purpose.
+          You&apos;re not organizing, prioritizing, or planning. You&apos;re just emptying.
+          Structure comes after — and only if you need it. Most of the time, the next step
+          becomes obvious once the noise is gone.
+        </p>
+
+        {/* After your dump */}
+        <div
+          className="rounded-2xl p-6 border"
+          style={{ background: "var(--sage-50)", borderColor: "var(--sage-100)" }}
+        >
+          <p className="font-semibold mb-1" style={{ color: "var(--sage-dark)" }}>
+            After your brain dump
+          </p>
+          <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+            Read through what you wrote. Pick the{" "}
+            <strong>one smallest, most concrete thing</strong> you can do right now — not the
+            most important, just the most startable. Then open the{" "}
+            <Link href="/tools/10-minute-adhd-timer/" style={{ color: "var(--sage)", fontWeight: 600 }}>
+              10-minute timer
+            </Link>{" "}
+            and begin.
           </p>
         </div>
+      </section>
 
-        {/* How it works */}
-        <div className="grid grid-cols-3 gap-4 mb-8 text-center">
-          {([
-            { icon: <PenIcon size={22} color="var(--sage-dark)" />, label: "Type everything", desc: "Tasks, worries, random thoughts — all of it" },
-            { icon: <WindIcon size={22} color="var(--sage-dark)" />, label: "Feel the relief", desc: "Your brain stops holding on once it's on screen" },
-            { icon: <TrashIcon size={22} color="var(--sage-dark)" />, label: "Clear and go", desc: "Delete it all. Start fresh. Move forward." },
-          ] as { icon: React.ReactNode; label: string; desc: string }[]).map((step) => (
-            <div key={step.label} className="rounded-2xl p-4 border"
-              style={{ background: "var(--warm-card)", borderColor: "var(--warm-border)" }}>
-              <div className="flex justify-center mb-2">{step.icon}</div>
-              <div className="text-xs font-bold mb-1" style={{ color: "var(--text-primary)" }}>{step.label}</div>
-              <div className="text-xs leading-relaxed" style={{ color: "var(--text-muted)" }}>{step.desc}</div>
+      {/* Related tools */}
+      <section className="max-w-2xl mx-auto px-4 pb-14">
+        <h2
+          className="text-lg font-extrabold mb-5"
+          style={{ color: "var(--text-primary)" }}
+        >
+          What to do after your brain dump
+        </h2>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {relatedTools.map((t) => (
+            <Link
+              key={t.href}
+              href={t.href}
+              className="flex items-start gap-4 rounded-2xl border p-5 card-hover"
+              style={{ background: "var(--warm-card)", borderColor: "var(--warm-border)" }}
+            >
+              <ToolIcon name={t.icon} size={22} containerSize={44} />
+              <div>
+                <p className="text-sm font-bold mb-1" style={{ color: "var(--text-primary)" }}>
+                  {t.title}
+                </p>
+                <p className="text-xs leading-relaxed" style={{ color: "var(--text-muted)" }}>
+                  {t.desc}
+                </p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="max-w-2xl mx-auto px-4 py-14">
+        <h2
+          className="text-xl font-extrabold mb-8"
+          style={{ color: "var(--text-primary)" }}
+        >
+          Frequently Asked Questions
+        </h2>
+        <div className="space-y-6">
+          {faqSchema.mainEntity.map((item) => (
+            <div
+              key={item.name}
+              className="rounded-2xl border p-6"
+              style={{ background: "var(--warm-card)", borderColor: "var(--warm-border)" }}
+            >
+              <p className="font-bold mb-2" style={{ color: "var(--text-primary)" }}>
+                {item.name}
+              </p>
+              <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+                {item.acceptedAnswer.text}
+              </p>
             </div>
           ))}
         </div>
-
-        {/* Textarea */}
-        {cleared ? (
-          <div
-            className="w-full rounded-3xl border flex items-center justify-center"
-            style={{
-              minHeight: "320px",
-              background: "var(--sage-50)",
-              borderColor: "var(--sage-100)",
-            }}
-          >
-            <div className="text-center">
-              <div className="flex justify-center mb-3"><SparkleIcon size={40} color="var(--sage)" /></div>
-              <p className="font-semibold" style={{ color: "var(--sage-dark)" }}>
-                All cleared. Head feels lighter?
-              </p>
-              <p className="text-sm mt-1" style={{ color: "var(--text-muted)" }}>
-                Ready for a fresh start...
-              </p>
-            </div>
-          </div>
-        ) : (
-          <textarea
-            ref={textareaRef}
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            placeholder="What's on your mind right now? Start anywhere. There's no wrong way to do this..."
-            autoFocus
-            className="w-full rounded-3xl border p-7 text-base leading-relaxed outline-none resize-none transition-all"
-            style={{
-              minHeight: "320px",
-              background: "var(--warm-card)",
-              borderColor: text ? "var(--sage-light)" : "var(--warm-border)",
-              color: "var(--text-primary)",
-              fontFamily: "inherit",
-            }}
-          />
-        )}
-
-        {/* Bottom bar */}
-        <div className="flex items-center justify-between mt-4">
-          <span className="text-xs" style={{ color: "var(--text-muted)" }}>
-            {wordCount > 0 ? `${wordCount} word${wordCount !== 1 ? "s" : ""}` : "Start typing — no rules here"}
-          </span>
-          {text.trim().length > 0 && (
-            <button
-              onClick={handleClear}
-              className="text-sm font-bold px-5 py-2.5 rounded-full text-white transition-opacity hover:opacity-90"
-              style={{ background: "var(--sage)" }}
-            >
-              <span className="flex items-center gap-1.5">Clear & Reset <TrashIcon size={14} color="white" /></span>
-            </button>
-          )}
-        </div>
-
-        {/* Gentle prompt */}
-        {wordCount > 30 && (
-          <div className="mt-6 rounded-2xl p-5 border text-center"
-            style={{ background: "var(--sage-50)", borderColor: "var(--sage-100)" }}>
-            <p className="text-sm font-semibold mb-1" style={{ color: "var(--sage-dark)" }}>
-              You&apos;ve written {wordCount} words. That&apos;s a lot to carry.
-            </p>
-            <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
-              When you&apos;re ready — pick just <strong>one thing</strong> from what you wrote.
-              Just one. That&apos;s your next step.
-            </p>
-          </div>
-        )}
-
-        {/* Note about privacy */}
-        <p className="text-center text-xs mt-8" style={{ color: "var(--text-muted)" }}>
-          <span className="inline-flex items-center gap-1.5"><LockIcon size={12} color="var(--text-muted)" /> Nothing you type here is saved, sent, or stored anywhere. This tool is 100% private.</span>
-        </p>
-      </div>
+      </section>
     </div>
   );
 }

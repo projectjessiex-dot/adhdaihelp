@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import ToolIcon from "@/components/ToolIcon";
+import { trackEvent } from "@/lib/analytics";
 
 type Phase = "setup" | "running" | "paused" | "checkin" | "done";
 type Mins = 10 | 25 | 45;
@@ -144,6 +145,14 @@ export default function BodyDoublingTimer() {
     if (timeLeft === 0 && phase === "running") setPhase("done");
   }, [timeLeft, phase]);
 
+  // Fire tool_complete when session finishes
+  useEffect(() => {
+    if (phase === "done") {
+      trackEvent("tool_complete", { tool_name: "body_doubling", tool_duration: mins });
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase]);
+
   // Rotate presence lines
   useEffect(() => {
     if (phase !== "running") return;
@@ -160,6 +169,7 @@ export default function BodyDoublingTimer() {
     setLineIdx(0);
     setCheckinAnswer(null);
     setPhase("running");
+    trackEvent("tool_start", { tool_name: "body_doubling", tool_duration: mins });
   }
 
   function resumeAfterCheckin() {
