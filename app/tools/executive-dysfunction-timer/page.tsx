@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Executive Dysfunction Timer — Break Task Paralysis in 10 Minutes",
   description:
     "Can't start tasks no matter how hard you try? Executive dysfunction makes starting neurologically difficult. This timer is designed to lower the barrier. Free, no sign-up.",
+  alternates: {
+    canonical: "https://adhdaihelp.com/tools/executive-dysfunction-timer/",
+  },
 };
 
 const faqSchema = {

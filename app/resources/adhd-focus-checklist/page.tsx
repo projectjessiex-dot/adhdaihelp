@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Free ADHD Daily Focus Checklist",
   description:
     "A practical ADHD morning routine and daily focus checklist — designed for how the ADHD brain actually works. Free to use and print.",
+  alternates: {
+    canonical: "https://adhdaihelp.com/resources/adhd-focus-checklist/",
+  },
 };
 
 const morning = [

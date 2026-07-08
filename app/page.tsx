@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "ADHDClarity — Free Tools for ADHD Brains",
   description:
     "Free, simple tools to help you start tasks, find focus, clear your head, and make today feel more manageable. Built for the way ADHD brains actually work.",
+  alternates: {
+    canonical: "https://adhdaihelp.com/",
+  },
 };
 
 const focusTools = [

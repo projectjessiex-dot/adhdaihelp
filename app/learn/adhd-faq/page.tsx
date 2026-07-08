@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "ADHD FAQ: Answers to the Most Common Questions About ADHD",
   description:
     "What is ADHD? Can you develop it as an adult? Is it genetic? Can it be treated without medication? Expert-backed answers to the most frequently asked questions about ADHD.",
+  alternates: {
+    canonical: "https://adhdaihelp.com/learn/adhd-faq/",
+  },
 };
 
 const faqSchema = {

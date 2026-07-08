@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Virtual Co-working Session — Work Alongside a Virtual Partner",
   description:
     "A free virtual co-working session. Name your task, set your time, and work alongside a virtual partner. Includes a mid-session check-in and a gentle reflection at the end.",
+  alternates: {
+    canonical: "https://adhdaihelp.com/tools/body-doubling-timer/",
+  },
 };
 
 const faqSchema = {

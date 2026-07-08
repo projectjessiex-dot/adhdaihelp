@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "A Gentle Guide to Time Blindness",
   description:
     "When time feels slippery and deadlines sneak up on you — why it happens and practical things that can help.",
+  alternates: {
+    canonical: "https://adhdaihelp.com/learn/time-blindness/",
+  },
 };
 
 export default function TimeBlinднess() {

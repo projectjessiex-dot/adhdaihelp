@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "ADHD Pomodoro Timer — Why 25 Minutes Doesn't Work (And What Does)",
   description:
     "The traditional Pomodoro technique uses 25-minute sessions — too long for most ADHD brains. Try this ADHD-adapted version with 10-minute focus blocks. Free, no sign-up.",
+  alternates: {
+    canonical: "https://adhdaihelp.com/tools/adhd-pomodoro-timer/",
+  },
 };
 
 const faqSchema = {

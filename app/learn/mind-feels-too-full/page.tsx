@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "What to Do When Your Mind Feels Too Full",
   description:
     "Racing thoughts, too many open loops. A short, practical guide to getting unstuck when everything feels overwhelming.",
+  alternates: {
+    canonical: "https://adhdaihelp.com/learn/mind-feels-too-full/",
+  },
 };
 
 export default function MindFeelsTooFull() {

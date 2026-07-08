@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "ADHD vs Anxiety: How to Tell the Difference",
   description:
     "ADHD and anxiety share many symptoms — but the causes and treatments are different. Learn how to distinguish them, why they so often co-occur, and what to do next.",
+  alternates: {
+    canonical: "https://adhdaihelp.com/learn/adhd-vs-anxiety/",
+  },
 };
 
 const faqSchema = {

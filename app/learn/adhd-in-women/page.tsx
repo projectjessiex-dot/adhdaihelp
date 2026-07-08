@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "ADHD in Women: Why It Goes Undiagnosed for Decades",
   description:
     "ADHD in women looks different — and is diagnosed far less often. Learn how female ADHD symptoms present, why they're missed, and what to do if you recognize yourself here.",
+  alternates: {
+    canonical: "https://adhdaihelp.com/learn/adhd-in-women/",
+  },
 };
 
 const faqSchema = {

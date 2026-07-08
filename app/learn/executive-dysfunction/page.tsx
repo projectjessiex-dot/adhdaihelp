@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "What Is Executive Dysfunction? The Core of ADHD Explained",
   description:
     "Executive dysfunction is why ADHD feels like more than just 'getting distracted.' Learn what the 6 executive functions are, how they break down in ADHD, and what actually helps.",
+  alternates: {
+    canonical: "https://adhdaihelp.com/learn/executive-dysfunction/",
+  },
 };
 
 const faqSchema = {

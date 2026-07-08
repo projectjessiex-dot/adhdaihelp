@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: "ADHD and Time Blindness: Why ADHD Brains Can't Feel Time",
   description:
     "People with ADHD don't experience time the way others do. Time blindness is neurological — not laziness. Learn what it is, why it happens, and what actually helps.",
+  alternates: {
+    canonical: "https://adhdaihelp.com/learn/adhd-time-blindness/",
+  },
 };
 
 const faqSchema = {
