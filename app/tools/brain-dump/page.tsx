@@ -72,14 +72,14 @@ const relatedTools = [
   {
     href: "/tools/10-minute-adhd-timer/",
     icon: "ten-minute" as const,
-    title: "10-Minute Focus Timer",
-    desc: "After your brain dump, pick one thing and start a 10-minute timer. Short enough to actually begin.",
+    title: "10-Minute Timer",
+    desc: "After your brain dump, pick one thing and start. 10 minutes is short enough to actually begin.",
   },
   {
-    href: "/tools/body-doubling-timer/",
-    icon: "body-doubling" as const,
-    title: "Virtual Co-working Session",
-    desc: "Work alongside a virtual partner. Useful when you need more than a timer to get started.",
+    href: "/tools/adhd-coach/",
+    icon: "focus-timer" as const,
+    title: "ADHD Coach",
+    desc: "Still stuck after the dump? The AI coach gives you one concrete first action, nothing more.",
   },
 ];
 

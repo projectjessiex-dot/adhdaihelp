@@ -165,3 +165,43 @@ export const BarChartIcon = mk(<>
   <rect x="16" y="10" width="4" height="12" />
   <line x1="2" y1="22" x2="22" y2="22" />
 </>);
+
+export const SunIcon = mk(<>
+  <circle cx="12" cy="12" r="4" />
+  <line x1="12" y1="1" x2="12" y2="3" />
+  <line x1="12" y1="21" x2="12" y2="23" />
+  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+  <line x1="1" y1="12" x2="3" y2="12" />
+  <line x1="21" y1="12" x2="23" y2="12" />
+  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+</>);
+
+export const CloudIcon = mk(<>
+  <path d="M17.5 19c-1.7 0-3-1.3-3-3 0-1.5 1.6-3.1 1.8-3.4.8-1.1.2-2.6-1.2-3.1-.5-.2-1.1-.3-1.6-.1C12.4 10 11 11.1 11 12.5c0 .8.4 1.5 1 2" />
+  <path d="M20.3 14.5c.7-.8 1.2-1.8 1.2-3 0-2.2-1.8-4-4-4-.7 0-1.4.2-2 .5-1.2-1.6-3-2.5-5-2.5-3.3 0-6 2.7-6 6 0 .5 0 1 .1 1.5" />
+</>);
+
+export const LeafIcon = mk(<>
+  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+  <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+</>);
+
+export const MoonIcon = mk(<>
+  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+</>);
+
+export const PlusIcon = mk(<>
+  <line x1="12" y1="5" x2="12" y2="19" />
+  <line x1="5" y1="12" x2="19" y2="12" />
+</>);
+
+export const GripIcon = mk(<>
+  <circle cx="9" cy="5" r="1" fill="currentColor" />
+  <circle cx="9" cy="12" r="1" fill="currentColor" />
+  <circle cx="9" cy="19" r="1" fill="currentColor" />
+  <circle cx="15" cy="5" r="1" fill="currentColor" />
+  <circle cx="15" cy="12" r="1" fill="currentColor" />
+  <circle cx="15" cy="19" r="1" fill="currentColor" />
+</>);

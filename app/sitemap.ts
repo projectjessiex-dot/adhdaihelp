@@ -15,6 +15,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/tools/body-doubling-timer/`,           lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/tools/executive-dysfunction-timer/`,   lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/tools/brain-dump/`,                    lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/tools/emotion-check-in/`,              lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/tools/routine-builder/`,              lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     // Tests / Quizzes
     { url: `${base}/tests/adult-adhd-test/`,               lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/tests/adhd-in-women-quiz/`,            lastModified: now, changeFrequency: "monthly", priority: 0.8 },

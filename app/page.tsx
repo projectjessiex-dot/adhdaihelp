@@ -5,13 +5,20 @@ import ToolIcon from "@/components/ToolIcon";
 export const metadata: Metadata = {
   title: "ADHDClarity — Free Tools for ADHD Brains",
   description:
-    "Free, simple tools to help you start tasks, find focus, clear your head, and make today feel more manageable. Built for the way ADHD brains actually work.",
+    "Free ADHD-friendly tools for starting tasks, finding focus, and clearing your head. No sign-up, no fluff — just tools that work the way your brain does.",
   alternates: {
     canonical: "https://adhdaihelp.com/",
   },
 };
 
 const focusTools = [
+  {
+    href: "/tools/10-minute-adhd-timer/",
+    icon: "ten-minute" as const,
+    title: "10-Minute Timer",
+    desc: "Can't begin? Don't force yourself to finish. Just do 10 minutes.",
+    cta: "Start 10 min",
+  },
   {
     href: "/tools/focus-timer/",
     icon: "focus-timer" as const,
@@ -25,13 +32,6 @@ const focusTools = [
     title: "Pomodoro Timer",
     desc: "Work in short bursts with built-in breaks and room for variety.",
     cta: "Try Pomodoro",
-  },
-  {
-    href: "/tools/10-minute-adhd-timer/",
-    icon: "ten-minute" as const,
-    title: "10-Minute Starter",
-    desc: "Can't begin? Just 10 minutes. That's the whole deal.",
-    cta: "Start 10 min",
   },
   {
     href: "/tools/body-doubling-timer/",
@@ -49,6 +49,20 @@ const organizeTools = [
     title: "Brain Dump",
     desc: "Get everything out of your head and onto the page. No structure needed.",
     cta: "Dump it out",
+  },
+  {
+    href: "/tools/emotion-check-in/",
+    icon: "focus-timer" as const,
+    title: "Emotion Check-In",
+    desc: "Track your mood and get personalized suggestions to feel grounded.",
+    cta: "Check in",
+  },
+  {
+    href: "/tools/routine-builder/",
+    icon: "focus-timer" as const,
+    title: "Routine Builder",
+    desc: "Build daily habits that actually stick with simple routines.",
+    cta: "Build routine",
   },
 ];
 
@@ -95,29 +109,29 @@ export default function HomePage() {
               letterSpacing: "-0.03em",
             }}
           >
-            Your Brain Works Differently.{" "}
+            Can&apos;t Start?{" "}
             <br className="hidden md:block" />
-            Your Tools Should Too.
+            Just Do 10 Minutes.
           </h1>
 
           <p
             className="text-lg leading-relaxed mb-8 max-w-lg mx-auto"
             style={{ color: "var(--text-secondary)" }}
           >
-            Free, simple tools to help you start tasks, find focus, clear your head,
-            and make today feel{" "}
+            Free ADHD-friendly tools for starting tasks, finding focus, and clearing your head.
+            No sign-up. No fluff. Use it{" "}
             <strong style={{ color: "var(--text-primary)" }}>
-              a little more manageable.
+              right now.
             </strong>
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
-              href="/tools/focus-timer/"
+              href="/tools/10-minute-adhd-timer/"
               className="font-semibold px-7 py-3.5 rounded-lg text-white text-sm transition-opacity hover:opacity-90"
               style={{ background: "var(--sage)" }}
             >
-              Try the Focus Timer →
+              Start the 10-Min Timer →
             </Link>
             <Link
               href="/tools/brain-dump/"
@@ -128,7 +142,7 @@ export default function HomePage() {
                 background: "var(--warm-card)",
               }}
             >
-              Clear My Head First
+              Brain Too Loud? Dump It First
             </Link>
           </div>
         </div>
@@ -258,28 +272,7 @@ export default function HomePage() {
               </Link>
             ))}
 
-            {/* Coming soon */}
-            <div
-              className="rounded-2xl border p-4 md:p-6 flex flex-col"
-              style={{
-                background: "var(--surface-dark-elevated)",
-                borderColor: "rgba(160,157,150,0.15)",
-                opacity: 0.55,
-              }}
-            >
-              <div className="mb-3">
-                <ToolIcon name="task-splitter" theme="focus" />
-              </div>
-              <h3 className="text-sm font-bold mb-1" style={{ color: "var(--on-dark)" }}>
-                Task Splitter
-              </h3>
-              <p className="text-xs leading-relaxed mb-3 flex-1" style={{ color: "var(--on-dark)" }}>
-                Break any task into tiny, actually-doable steps.
-              </p>
-              <span className="text-xs font-semibold" style={{ color: "var(--on-dark-soft)" }}>
-                Coming soon
-              </span>
-            </div>
+
           </div>
         </div>
       </section>

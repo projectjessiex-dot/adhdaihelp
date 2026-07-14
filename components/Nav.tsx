@@ -27,11 +27,11 @@ const links: NavItem[] = [
   {
     label: "Tools",
     children: [
+      { label: "10-Minute Timer", href: "/tools/10-minute-adhd-timer/" },
       { label: "Brain Dump", href: "/tools/brain-dump/" },
       { label: "Focus Timer", href: "/tools/focus-timer/" },
       { label: "Pomodoro Timer", href: "/tools/adhd-pomodoro-timer/" },
       { label: "Body Doubling Timer", href: "/tools/body-doubling-timer/" },
-      { label: "10-Minute Timer", href: "/tools/10-minute-adhd-timer/" },
     ],
   },
 ];
@@ -118,7 +118,7 @@ export default function Nav() {
             )
           )}
           <Link
-            href="/tools/focus-timer/"
+            href="/tools/10-minute-adhd-timer/"
             className="text-sm font-semibold px-5 py-2.5 rounded-lg transition-opacity hover:opacity-90 text-white"
             style={{ background: "var(--sage)" }}
           >
@@ -182,7 +182,7 @@ export default function Nav() {
             )
           )}
           <Link
-            href="/tools/focus-timer/"
+            href="/tools/10-minute-adhd-timer/"
             className="block text-center text-sm font-bold px-5 py-3 rounded-full text-white mt-2"
             style={{ background: "var(--sage)" }}
             onClick={() => setOpen(false)}

@@ -92,13 +92,13 @@ const relatedTools = [
     href: "/tools/brain-dump/",
     icon: "brain-dump" as const,
     title: "Brain Dump",
-    desc: "Clear the mental clutter before you start. Get everything out of your head and onto the page.",
+    desc: "Brain too loud to pick a task? Dump everything out first, then come back and start your 10 minutes.",
   },
   {
-    href: "/tools/body-doubling-timer/",
-    icon: "body-doubling" as const,
-    title: "Virtual Co-working Session",
-    desc: "Work alongside a virtual partner. Commit to a task, check in at halfway, and reflect at the end.",
+    href: "/tools/adhd-coach/",
+    icon: "focus-timer" as const,
+    title: "ADHD Coach",
+    desc: "Not sure where to start? The AI coach breaks your task into one tiny first step.",
   },
 ];
 
